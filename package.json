@@ -1,0 +1,48 @@
+{
+  "name": "@jlongyam/env",
+  "version": "0.1.1",
+  "description": "cross platform environment detector",
+  "keywords": [
+    "env",
+    "environment"
+  ],
+  "author": "jlongyam",
+  "license": "MIT",
+  "repository": "https://github.com/jlongyam/env",
+  "homepage": "https://github.com/jlongyam/env",
+  "bugs": "https://github.com/jlongyam/env/issues",
+  "main": "./src/envContext.js",
+  "type": "module",
+  "scripts": {
+    "test:context": "node ./test/envContext.test.js",
+    "test:global": "node ./test/envGlobal.test.js",
+    "test": "npm run test:context && npm run test:global",
+    "bundle": "rollup -c",
+    "server": "serve ./"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^1.0.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.48.0",
+    "serve": "^14.2.4",
+    "systemjs": "^6.15.1"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/envContext.js",
+      "require": "./dist/cjs/envContext.js"
+    },
+    "./global": {
+      "import": "./src/envGlobal.js",
+      "require": "./dist/cjs/envGlobal.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
