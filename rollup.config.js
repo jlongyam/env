@@ -17,7 +17,8 @@ export default {
 		format: 'cjs',
 		strict: false,
 		preserveModules: true,
-		preserveModulesRoot: './src'
+		preserveModulesRoot: './src',
+		entryFileNames: '[name].cjs'
 	}],
 	plugins: [
 		resolve(),

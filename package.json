@@ -35,11 +35,11 @@
   "exports": {
     ".": {
       "import": "./src/envContext.js",
-      "require": "./dist/cjs/envContext.js"
+      "require": "./dist/cjs/envContext.cjs"
     },
     "./global": {
       "import": "./src/envGlobal.js",
-      "require": "./dist/cjs/envGlobal.js"
+      "require": "./dist/cjs/envGlobal.cjs"
     }
   },
   "publishConfig": {
