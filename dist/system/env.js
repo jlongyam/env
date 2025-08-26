@@ -7,7 +7,7 @@ System.register([], (function (exports) {
       var worker = (typeof self !== 'undefined' && typeof importScripts === 'function');
       var cli = (!browser && !worker);
 
-      var envContext = exports("default", {
+      var env = exports("default", {
         browser: browser,
         worker: worker,
         cli: cli

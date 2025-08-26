@@ -14,13 +14,15 @@
   "main": "./src/envContext.js",
   "type": "module",
   "scripts": {
-    "test:context": "node ./test/envContext.test.js",
-    "test:global": "node ./test/envGlobal.test.js",
-    "test": "npm run test:context && npm run test:global",
+    "test:source": "node ./test/source.test.js",
+    "test:module": "node ./test/module.test.mjs",
+    "test:common": "node ./test/common.test.cjs",
+    "test": "npm run test:source && npm run test:module && npm run test:common",
     "bundle": "rollup -c",
     "server": "serve ./"
   },
   "devDependencies": {
+    "@jlongyam/test": "^0.7.1",
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
@@ -34,11 +36,11 @@
   ],
   "exports": {
     ".": {
-      "import": "./src/envContext.js",
-      "require": "./dist/cjs/envContext.cjs"
+      "import": "./dist/mjs/env.mjs",
+      "require": "./dist/cjs/env.cjs"
     },
     "./global": {
-      "import": "./src/envGlobal.js",
+      "import": "./dist/mjs/envGlobal.mjs",
       "require": "./dist/cjs/envGlobal.cjs"
     }
   },

@@ -1,8 +1,10 @@
 # env
 
+Basic environment detector
+
 ## API
 
-- `envContext`: `window`|`worker`|`cli`
+- `env`: `window`|`worker`|`cli`
 - `envGlobal`: `globalThis` | `global` | `self` | `window`
 
 ## Alternative
