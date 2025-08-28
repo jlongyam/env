@@ -108,6 +108,32 @@ console.log(env);
 </script>
 ```
 
+### Worker
+
+- worker.js
+
+```js
+import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js";
+import envGlobal from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/envGlobal.js";
+
+self.postMessage({
+  'env': env,
+  'envGlobal': (envGlobal === self) ? 'self': false
+});
+```
+
+- front
+
+```html
+<script type="module">
+  const worker = new Worker('./worker.js', { type: 'module' });
+  
+  worker.addEventListener('message', (event) => {
+    console.log(event.data)
+  });
+</script>
+```
+
 ### API
 
 - `env`: `window` | `worker` | `cli`
