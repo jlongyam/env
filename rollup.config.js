@@ -45,17 +45,4 @@ export default [{
 		resolve(),
 		buble()
 	]
-}, {
-	input: src,
-	output: {
-		dir: dir.out+'/iife',
-		format: 'iife',
-		strict: false,
-		preserveModules: true,
-		preserveModulesRoot: dir.in,
-	},
-	plugins: [
-		resolve(),
-		buble()
-	]
 }];

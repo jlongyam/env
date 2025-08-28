@@ -1,7 +1,5 @@
 # env
 
-[![jsdelivr](https://data.jsdelivr.com/v1/package/npm/@jlongyam/env/badge)](https://www.jsdelivr.com/package/npm/@jlongyam/env)
-
 Basic environment detector.
 
 ## Usage
@@ -30,36 +28,7 @@ env.global = require("@jlongyam/env/global");
 console.log(env);
 ```
 
-#### Return
-
-- `env`: `window`|`worker`|`cli`
-- `envGlobal`: `globalThis` | `global` | `self` | `window`
-
-### Browser
-
-```html
-<script type="importmap">
-  {
-    "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js",
-      "envGlobal": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/envGlobal.js"
-    }
-  }
-</script>
-<script type="module">
-  import env from "env";
-  import envGlobal from "envGlobal";
-
-  env.global = envGlobal;
-  console.log(env);
-</script>
-```
-
-For specific versions see [jsdelivr.com/package/npm/@jlongyam/env](https://www.jsdelivr.com/package/npm/@jlongyam/env?tab=files)
-
-## Legacy
-
-### In CLI
+- SystemJS
 
 `npm i systemjs`
 
@@ -89,7 +58,31 @@ env.global = exports.envGlobal.default;
 console.log(env);
 ```
 
-### In Browser
+### Browser
+
+CDN [jsdelivr.com/package/npm/@jlongyam/env](https://www.jsdelivr.com/package/npm/@jlongyam/env?tab=files)
+
+- ES Module
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js",
+      "envGlobal": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/envGlobal.js"
+    }
+  }
+</script>
+<script type="module">
+  import env from "env";
+  import envGlobal from "envGlobal";
+
+  env.global = envGlobal;
+  console.log(env);
+</script>
+```
+
+- SystemJS
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
@@ -115,11 +108,11 @@ console.log(env);
 </script>
 ```
 
+### API
+
+- `env`: `window` | `worker` | `cli`
+- `envGlobal`: `globalThis` | `global` | `self` | `window`
+
 ## Alternative
 
 - [environment](https://github.com/sindresorhus/environment)
-
-## Related
-
-- [systemjs](https://github.com/systemjs/systemjs)
-- [test](https://github.com/jlongyam/test)
