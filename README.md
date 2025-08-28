@@ -134,7 +134,7 @@ self.postMessage({
 </script>
 ```
 
-### API
+## API
 
 - `env`: `window` | `worker` | `cli`
 - `envGlobal`: `globalThis` | `global` | `self` | `window`
