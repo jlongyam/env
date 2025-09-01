@@ -1,7 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import buble from '@rollup/plugin-buble';
-import dts from 'rollup-plugin-dts';
 
 const plugins = [
 	resolve(),
@@ -42,11 +41,4 @@ export default [{
 		strict: false
 	},
 	plugins: plugins
-}, {
-	input: './src/env.mjs',
-	output: {
-		file: './dist/env.d.ts',
-		format: 'es'
-	},
-	plugins: [dts()]
 }];
