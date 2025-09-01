@@ -21,14 +21,6 @@
     "server": "serve ./",
     "test": "node ./test/test.js"
   },
-  "devDependencies": {
-    "@rollup/plugin-buble": "^1.0.3",
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "rollup": "^4.48.0",
-    "serve": "^14.2.4",
-    "systemjs": "^6.15.1"
-  },
   "publishConfig": {
     "access": "public"
   },
