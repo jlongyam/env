@@ -15,14 +15,14 @@
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
   "main": "index.js",
-  "type": "commonjs",
   "scripts": {
     "bundle": "rollup -c",
     "server": "serve ./",
     "test": "node ./test/test.js"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://registry.npmjs.org"
   },
   "engine": ">=6"
 }
