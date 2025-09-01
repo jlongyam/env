@@ -1,5 +1,5 @@
-import env from '../src/env.js';
-import envGlobal from "../src/envGlobal.js";
+import env from '../dist/env.js';
+import envGlobal from "../dist/envGlobal.js";
 
 self.postMessage({
   'env': env,

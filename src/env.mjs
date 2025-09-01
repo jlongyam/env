@@ -7,4 +7,4 @@ const env = {
   cli: cli
 };
 
-module.exports = env;
+export default env;

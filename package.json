@@ -15,21 +15,33 @@
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
   "main": "dist/cjs/env.js",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^1.0.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.48.0",
+    "serve": "^14.2.4",
+    "systemjs": "^6.15.1"
+  },
   "scripts": {
-    "bundle": "rollup -c",
-    "server": "serve ./",
-    "test": "node ./test/test.js"
+    "build": "rollup -c",
+    "test": "node ./test/test.mjs",
+    "server": "serve ./"
   },
   "exports": {
     ".": {
-      "import": "./src/env.js",
-      "require": "./src/env.js"
+      "import": "./dist/env.js",
+      "require": "./dist/cjs/env.js"
     },
     "./global": {
-      "import": "./src/envGlobal.js",
-      "require": "./src/envGlobal.js"
+      "import": "./dist/envGlobal.js",
+      "require": "./dist/cjs/envGlobal.js"
     }
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

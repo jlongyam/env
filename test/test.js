@@ -1,5 +1,5 @@
-import env from '../src/env.js';
-import envGlobal from '../src/envGlobal.js';
+const env = require('../dist/cjs/env.js');
+const envGlobal = require('../dist/cjs/envGlobal.js');
 
 console.log(env);
 console.log(envGlobal == global);
