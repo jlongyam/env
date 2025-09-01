@@ -1,2 +1,6 @@
 .DS_Store
 node_modules
+_package-lockjson
+original_package.json
+_package-lock.json
+package-lock.json

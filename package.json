@@ -29,20 +29,6 @@
     "serve": "^14.2.4",
     "systemjs": "^6.15.1"
   },
-  "files": [
-    "src",
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./src/env.js",
-      "require": "./dist/env.cjs"
-    },
-    "./global": {
-      "import": "./src/envGlobal.js",
-      "require": "./dist/envGlobal.cjs"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
