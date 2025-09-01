@@ -19,15 +19,17 @@
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "rollup": "^4.48.0",
+    "rollup": "^4.50.0",
+    "rollup-plugin-dts": "^6.2.3",
     "serve": "^14.2.4",
     "systemjs": "^6.15.1",
     "typescript": "^5.9.2"
   },
   "scripts": {
-    "build": "rollup -c && tsc --allowJs --declaration --emitDeclarationOnly dist/env.js",
+    "rollup": "rollup -c",
     "test": "node ./test/test.mjs",
-    "server": "serve ./"
+    "serve": "serve ./",
+    "d.ts": "tsc --allowJs --declaration --emitDeclarationOnly dist/env.js"
   },
   "exports": {
     "import": "./dist/env.js",
