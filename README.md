@@ -6,7 +6,7 @@ Basic environment detector.
 
 ### CLI
 
-- `npm i @jlongyam/env -S` or `-D`
+`npm i @jlongyam/env -S` or `-D`
 
 - ES Module
 
@@ -52,7 +52,16 @@ console.log(env);
 
 ### Browser
 
-[jsdelivr.com/package/npm/@jlongyam/env](https://www.jsdelivr.com/package/npm/@jlongyam/env?tab=files)
+CDN: [jsdelivr.com/package/npm/@jlongyam/env](https://www.jsdelivr.com/package/npm/@jlongyam/env?tab=files)
+
+- IIFE
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.iife.js"></script>
+<script>
+  console.log(env)
+</script>
+```
 
 - ES Module
 
@@ -118,13 +127,13 @@ self.postMessage({
 
 ## API
 
-- `env`: `window` | `worker` | `cli` | `global`
-- `env.global`: `globalThis` | `global` | `self` | `window`
+- __env__: `window` | `worker` | `cli` | `global`
+- __env.global__: `globalThis` | `global` | `self` | `window`
 
 ## Tested
 
-- node: __5.12.0+__
-- browser: __IE8+__
+- node: __5.12.0__
+- browser: __IE-8__
 
 ## Uninstall
 
