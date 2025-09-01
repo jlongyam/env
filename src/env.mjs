@@ -1,10 +1,7 @@
-const browser = (typeof window !== 'undefined');
-const worker = (typeof importScripts !== 'undefined');
-const cli = (!browser && !worker);
-const env = {
-  browser: browser,
-  worker: worker,
-  cli: cli
-};
+import envRuntime from "./envRuntime.mjs";
+import envGlobal from "./envGlobal.mjs";
 
-export default env;
+const env = envRuntime
+env.global = envGlobal;
+
+export default env

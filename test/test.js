@@ -1,5 +1,10 @@
-const env = require('../dist/cjs/env.js');
-const envGlobal = require('../dist/cjs/envGlobal.js');
+const env = require('../dist/env.cjs');
 
-console.log(env);
-console.log(envGlobal == global);
+const result = {}
+
+result.cli = env.cli;
+result.browser = env.browser;
+result.worker = env.worker;
+result.global = (env.global == global) ? 'global' : env.global;
+
+console.log(result);

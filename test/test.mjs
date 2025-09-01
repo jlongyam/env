@@ -1,5 +1,10 @@
 import env from '../src/env.mjs';
-import envGlobal from '../src/envGlobal.mjs';
 
-console.log(env);
-console.log(envGlobal == global);
+const result = {}
+
+result.cli = env.cli;
+result.browser = env.browser;
+result.worker = env.worker;
+result.global = (env.global == global) ? 'global': env.global;
+
+console.log(result);

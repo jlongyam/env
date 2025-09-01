@@ -11,14 +11,14 @@
   <pre id="pre"></pre>
   <script>
     const worker = new Worker('./worker.test.js', { type: 'module' });
+    const pre = document.getElementById('pre');
 
-    var pre = document.getElementById('pre');
-    
     worker.addEventListener('message', (event) => {
-      for (var i in event.data.env) {
-        pre.innerHTML += i + ': ' + event.data.env[i] + '<br>';
+      const result = event.data
+
+      for (var i in result) {
+        pre.innerHTML += i + ': ' + result[i] + '<br>';
       }
-      pre.innerHTML += 'envGlobal: ' + event.data.envGlobal + '<br>';
     });
   </script>
 </body>

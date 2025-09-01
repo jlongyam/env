@@ -5,20 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test: iife</title>
-  <script src="../dist/iife/env.js"></script>
-  <script src="../dist/iife/envGlobal.js"></script>
+  <script src="../dist/env.iife.js"></script>
 </head>
 
 <body>
   <pre id="pre"></pre>
   <script>
     var pre = document.getElementById('pre');
-    
-    for (var i in env) {
-      pre.innerHTML += i + ': ' + env[i] + '<br>';
-    }
-    if (envGlobal == window) {
-      pre.innerHTML += 'envGlobal: window<br>';
+    var result = {}
+
+    result.cli = env.cli;
+    result.browser = env.browser;
+    result.worker = env.worker;
+    result.global = (env.global == window) ? 'window' : env.global;
+
+    for (var i in result) {
+      pre.innerHTML += i + ': ' + result[i] + '<br>';
     }
   </script>
 </body>

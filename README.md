@@ -6,16 +6,12 @@ Basic environment detector.
 
 ### CLI
 
-- `npm i @jlongyam/env -S` as dependencies
-- `npm i @jlongyam/env -D` as devDependencies
+- `npm i @jlongyam/env -S` or `-D`
 
 - ES Module
 
 ```js
 import env from "@jlongyam/env";
-import envGlobal from "@jlongyam/env/global";
-
-env.global = envGlobal;
 
 console.log(env);
 ```
@@ -24,7 +20,6 @@ console.log(env);
 
 ```js
 const env = require("@jlongyam/env");
-env.global = require("@jlongyam/env/global");
 
 console.log(env);
 ```
@@ -35,7 +30,6 @@ console.log(env);
 
 ```js
 import url from "url";
-import systemjs from 'systemjs';
 
 const { System, applyImportMap, setBaseUrl } = systemjs;
 const basePath = url.pathToFileURL(process.cwd()).href;
@@ -139,6 +133,11 @@ self.postMessage({
 
 - `env`: `window` | `worker` | `cli`
 - `envGlobal`: `globalThis` | `global` | `self` | `window`
+
+## Tested
+
+- node: 5.12.0+
+- browser: IE8+
 
 ## Uninstall
 

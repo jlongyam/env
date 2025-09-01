@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
-  "main": "dist/cjs/env.js",
+  "main": "dist/env.cjs",
   "devDependencies": {
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
@@ -29,14 +29,8 @@
     "server": "serve ./"
   },
   "exports": {
-    ".": {
-      "import": "./dist/env.js",
-      "require": "./dist/cjs/env.js"
-    },
-    "./global": {
-      "import": "./dist/envGlobal.js",
-      "require": "./dist/cjs/envGlobal.js"
-    }
+    "import": "./dist/env.js",
+    "require": "./dist/env.cjs"
   },
   "files": [
     "src",

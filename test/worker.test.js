@@ -1,7 +1,9 @@
 import env from '../dist/env.js';
-import envGlobal from "../dist/envGlobal.js";
+const result = {};
 
-self.postMessage({
-  'env': env,
-  'envGlobal': (envGlobal == self) ? 'self': 'not-self'
-});
+result.cli = env.cli;
+result.browser = env.browser;
+result.worker = env.worker;
+result.global = (env.global == self) ? 'self' : env.global;
+
+self.postMessage(result);

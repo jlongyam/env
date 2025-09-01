@@ -8,8 +8,7 @@ const plugins = [
 	buble()
 ];
 
-export default [ {
-	// default: es
+export default [{
 	input: './src/env.mjs',
 	output: {
 		file: './dist/env.js',
@@ -18,64 +17,28 @@ export default [ {
 	},
 	plugins: plugins
 }, {
-	input: './src/envGlobal.mjs',
-	output: {
-		file: './dist/envGlobal.js',
-		format: 'es',
-		strict: false
-	},
-	plugins: plugins
-}, {
-	// legacy: iife
 	input: './src/env.mjs',
 	output: {
-		file: './dist/iife/env.js',
+		file: './dist/env.iife.js',
 		format: 'iife',
 		name: 'env',
 		strict: false
 	},
 	plugins: plugins
 }, {
-	input: './src/envGlobal.mjs',
-	output: {
-		file: './dist/iife/envGlobal.js',
-		format: 'iife',
-		name: 'envGlobal',
-		strict: false
-	},
-	plugins: plugins
-}, {
-	// legacy: cjs
 	input: './src/env.mjs',
 	output: {
-		file: './dist/cjs/env.js',
+		file: './dist/env.cjs',
 		format: 'cjs',
 		strict: false
 	},
 	plugins: plugins
 }, {
-	input: './src/envGlobal.mjs',
-	output: {
-		file: './dist/cjs/envGlobal.js',
-		format: 'cjs',
-		strict: false
-	},
-	plugins: plugins
-}, {
-	// system
 	input: './src/env.mjs',
 	output: {
-		file: './dist/system/env.js',
+		file: './dist/env.system.js',
 		format: 'system',
 		strict: false
 	},
 	plugins: plugins
-}, {
-	input: './src/envGlobal.mjs',
-	output: {
-		file: './dist/system/envGlobal.js',
-		format: 'system',
-		strict: false
-	},
-	plugins: plugins
-}];
+},];

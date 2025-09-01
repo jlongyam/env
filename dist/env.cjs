@@ -19,4 +19,4 @@ var envGlobal = (function () {
 var env = envRuntime;
 env.global = envGlobal;
 
-export { env as default };
+module.exports = env;
