@@ -14,8 +14,7 @@
   },
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
-  "main": "index.js",
-  "type": "commonjs",
+  "main": "dist/env.cjs",
   "scripts": {
     "bundle": "rollup -c",
     "server": "serve ./",
