@@ -118,13 +118,13 @@ self.postMessage({
 
 ## API
 
-- `env`: `window` | `worker` | `cli`
-- `envGlobal`: `globalThis` | `global` | `self` | `window`
+- `env`: `window` | `worker` | `cli` | `global`
+- `env.global`: `globalThis` | `global` | `self` | `window`
 
 ## Tested
 
-- node: 5.12.0+
-- browser: IE8+
+- node: __5.12.0+__
+- browser: __IE8+__
 
 ## Uninstall
 
