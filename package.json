@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
-  "main": "./dist/env.cjs",
+  "main": "dist/env.cjs",
   "type": "module",
   "scripts": {
     "bundle": "rollup -c",
@@ -44,6 +44,8 @@
     }
   },
   "publishConfig": {
-    "access": "public"
-  }
+    "access": "public",
+    "registry": "http://registry.npmjs.org"
+  },
+  "engine": ">=5.12.0"
 }
