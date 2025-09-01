@@ -21,10 +21,11 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "rollup": "^4.48.0",
     "serve": "^14.2.4",
-    "systemjs": "^6.15.1"
+    "systemjs": "^6.15.1",
+    "typescript": "^5.9.2"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && tsc --allowJs --declaration --emitDeclarationOnly dist/env.js",
     "test": "node ./test/test.mjs",
     "server": "serve ./"
   },
