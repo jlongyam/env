@@ -6,4 +6,4 @@ const envGlobal = (() => {
   return {}
 })();
 
-export default envGlobal;
+module.exports = envGlobal;

@@ -15,11 +15,20 @@
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
   "main": "dist/cjs/env.js",
-  "type": "module",
   "scripts": {
     "bundle": "rollup -c",
     "server": "serve ./",
     "test": "node ./test/test.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/env.js",
+      "require": "./src/env.js"
+    },
+    "./global": {
+      "import": "./src/envGlobal.js",
+      "require": "./src/envGlobal.js"
+    }
   },
   "publishConfig": {
     "access": "public"

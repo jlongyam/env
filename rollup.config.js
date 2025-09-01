@@ -1,13 +1,13 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import buble from '@rollup/plugin-buble';
-
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const buble = require('@rollup/plugin-buble');
 const plugins = [
 	resolve(),
 	commonjs(),
 	buble()
 ]
-export default [{
+
+module.exports = [{
 	// IIFE
 	input: './src/env.js',
 	output: {
