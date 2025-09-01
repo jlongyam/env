@@ -30,6 +30,7 @@ console.log(env);
 
 ```js
 import url from "url";
+import systemjs from "systemjs";
 
 const { System, applyImportMap, setBaseUrl } = systemjs;
 const basePath = url.pathToFileURL(process.cwd()).href;
@@ -37,18 +38,14 @@ const basePath = url.pathToFileURL(process.cwd()).href;
 setBaseUrl(System, basePath);
 applyImportMap(System, {
   imports: {
-    env: "./node_modules/@jlongyam/env/dist/system/env.js",
-    envGlobal: "./node_modules/@jlongyam/env/dist/system/envGlobal.js"
+    env: "./node_modules/@jlongyam/env/dist/system/env.js"
   }
 });
 
 const exports = {
-  env: await System.import(["env"]),
-  envGlobal: await System.import(["envGlobal"])
+  env: await System.import(["env"])
 };
 const env = exports.env.default;
-
-env.global = exports.envGlobal.default;
 
 console.log(env);
 ```
@@ -63,16 +60,13 @@ console.log(env);
 <script type="importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js",
-      "envGlobal": "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/envGlobal.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.js"
     }
   }
 </script>
 <script type="module">
   import env from "env";
-  import envGlobal from "envGlobal";
 
-  env.global = envGlobal;
   console.log(env);
 </script>
 ```
@@ -84,20 +78,15 @@ console.log(env);
 <script type="systemjs-importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/system/env.js",
-      "envGlobal": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/system/envGlobal.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.system.js"
     }
   }
 </script>
 <script>
   (async function () {
-    const exports = {
-      env: await System.import(["env"]),
-      envGlobal: await System.import(["envGlobal"])
-    };
-    const env = exports.env.default;
+    let env = await System.import(["env"]);
+    env = env.default;
     
-    env.global = exports.envGlobal.default;
     console.log(env);
   })();
 </script>
@@ -109,12 +98,10 @@ console.log(env);
 
 ```js
 import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js";
-import envGlobal from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/envGlobal.js";
 
 self.postMessage({
-  'env': env,
-  'envGlobal': (envGlobal === self) ? 'self': false
-});
+  result: env.worker
+})
 ```
 
 - front

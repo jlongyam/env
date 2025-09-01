@@ -9,8 +9,7 @@
   <script type="systemjs-importmap">
   {
     "imports": {
-      "env": "../dist/system/env.js",
-      "envGlobal": "../dist/system/envGlobal.js"
+      "env": "../dist/env.system.js"
     }
   }
 </script>
@@ -20,22 +19,21 @@
   <pre id="pre"></pre>
   <script>
     (async () => {
-      const exports = {
-        env: await System.import(["env"]),
-        envGlobal: await System.import(["envGlobal"])
-      };
-
       var pre = document.getElementById('pre');
-      env = exports.env.default;
-      envGlobal = exports.envGlobal.default;
+      let env = await System.import(["env"]);
+      env = env.default;
 
-      for (var i in env) {
-        pre.innerHTML += i + ': ' + env[i] + '<br>';
+      var result = {}
+
+      result.cli = env.cli;
+      result.browser = env.browser;
+      result.worker = env.worker;
+      result.global = (env.global == window) ? 'window' : env.global;
+
+      for (var i in result) {
+        pre.innerHTML += i + ': ' + result[i] + '<br>';
       }
-      if (envGlobal == window) {
-        pre.innerHTML += 'envGlobal: window<br>';
-      }
-    })();
+    })()
   </script>
 </body>
 
