@@ -23,5 +23,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "engine": ">=6"
+  "engine": ">=5.12"
 }

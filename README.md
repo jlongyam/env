@@ -6,7 +6,8 @@ Basic environment detector.
 
 ### CLI
 
-`npm i @jlongyam/env -D`
+- `npm i @jlongyam/env -S` as dependencies
+- `npm i @jlongyam/env -D` as devDependencies
 
 - ES Module
 
@@ -138,6 +139,10 @@ self.postMessage({
 
 - `env`: `window` | `worker` | `cli`
 - `envGlobal`: `globalThis` | `global` | `self` | `window`
+
+## Uninstall
+
+- `npm uninstall @jlongyam/env -D` or `-S`
 
 ## Alternative
 

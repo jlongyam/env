@@ -3,3 +3,4 @@ node_modules
 _package-lock.json
 original_package.json
 npm-debug.log
+_success_package.json
