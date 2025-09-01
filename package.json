@@ -47,5 +47,5 @@
     "access": "public",
     "registry": "http://registry.npmjs.org"
   },
-  "engine": ">=5.12.0"
+  "engine": ">=6"
 }
