@@ -52,7 +52,7 @@ console.log(env);
 
 ### Browser
 
-CDN: [jsdelivr.com/package/npm/@jlongyam/env](https://www.jsdelivr.com/package/npm/@jlongyam/env?tab=files)
+CDN: [cdn.jsdelivr.net/npm/@jlongyam/env](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
 
 - IIFE
 
