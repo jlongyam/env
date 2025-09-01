@@ -33,7 +33,6 @@
     "require": "./dist/env.cjs"
   },
   "files": [
-    "src",
     "dist"
   ],
   "publishConfig": {
