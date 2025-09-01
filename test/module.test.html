@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test: module</title>
+</head>
+
+<body>
+  <pre id="pre"></pre>
+  <script type="module">
+    import env from '../src/env.js';
+    import envGlobal from '../src/envGlobal.js';
+
+    var pre = document.getElementById('pre');
+    
+    for (var i in env) {
+      pre.innerHTML += i + ': ' + env[i] + '<br>';
+    }
+    if (envGlobal == window) {
+      pre.innerHTML += 'envGlobal: window<br>';
+    }
+  </script>
+</body>
+
+</html>

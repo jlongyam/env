@@ -1,7 +1,6 @@
-const browser = (typeof window !== 'undefined' && typeof document !== 'undefined');
-const worker = (typeof self !== 'undefined' && typeof importScripts === 'function');
+const browser = (typeof window !== 'undefined');
+const worker = (typeof importScripts !== 'undefined');
 const cli = (!browser && !worker);
-
 const env = {
   browser: browser,
   worker: worker,

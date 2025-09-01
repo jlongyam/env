@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test: worker</title>
+</head>
+
+<body>
+  <pre id="pre"></pre>
+  <script>
+    const worker = new Worker('./worker.test.js', { type: 'module' });
+
+    var pre = document.getElementById('pre');
+    
+    worker.addEventListener('message', (event) => {
+      for (var i in event.data.env) {
+        pre.innerHTML += i + ': ' + event.data.env[i] + '<br>';
+      }
+      pre.innerHTML += 'envGlobal: ' + event.data.envGlobal + '<br>';
+    });
+  </script>
+</body>
+
+</html>

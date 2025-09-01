@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test: system</title>
+  <script src="../node_modules/systemjs/dist/s.js"></script>
+  <script type="systemjs-importmap">
+  {
+    "imports": {
+      "env": "../dist/system/env.js",
+      "envGlobal": "../dist/system/envGlobal.js"
+    }
+  }
+</script>
+</head>
+
+<body>
+  <pre id="pre"></pre>
+  <script>
+    (async () => {
+      const exports = {
+        env: await System.import(["env"]),
+        envGlobal: await System.import(["envGlobal"])
+      };
+
+      var pre = document.getElementById('pre');
+      env = exports.env.default;
+      envGlobal = exports.envGlobal.default;
+
+      for (var i in env) {
+        pre.innerHTML += i + ': ' + env[i] + '<br>';
+      }
+      if (envGlobal == window) {
+        pre.innerHTML += 'envGlobal: window<br>';
+      }
+    })();
+  </script>
+</body>
+
+</html>
