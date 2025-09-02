@@ -1,8 +1,7 @@
 # env
 
-[![AppVeyor](https://shields.fly.dev/appveyor/build/jlongyam/env?logo=appveyor)](https://ci.appveyor.com/project/jlongyam/env)
-[![npm bundle size](https://shields.fly.dev/bundlephobia/min/@jlongyam/env?logo=javascript)](https://bundlephobia.com/package/@jlongyam/env)
 [![npm version](https://badge.fury.io/js/@jlongyam%2Fenv.svg?icon=si%3Anpm)](https://www.npmjs.com/package/@jlongyam/env)
+[![npm bundle size](https://shields.fly.dev/bundlephobia/min/@jlongyam/env?logo=javascript)](https://bundlephobia.com/package/@jlongyam/env)
 
 Basic environment detector.
 
