@@ -1,0 +1,13 @@
+{
+  "extends": "npm-package-json-lint-config-default",
+  "rules": {
+    "valid-values-type": ["error", [
+      "Avoid using 'type'"
+    ]],
+    "valid-values-engines": ["error", [
+      {
+        "node": ">=5.12.0"
+      }
+    ]]
+  }
+}

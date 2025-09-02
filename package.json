@@ -14,17 +14,26 @@
   },
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
+  "readme": "./README.md",
   "main": "dist/env.cjs",
   "devDependencies": {
+    "@eslint/js": "^9.34.0",
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "chai": "^6.0.1",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "markdownlint-cli": "^0.45.0",
     "mocha": "^11.7.2",
+    "npm-package-json-lint": "^9.0.0",
+    "npm-package-json-lint-config-default": "^8.0.1",
     "rollup": "^4.50.0",
     "systemjs": "^6.15.1"
   },
   "scripts": {
+    "lint:package": "npmPkgJsonLint ./package.json -c ./package-lint.json",
+    "lint": "eslint ./src && markdownlint ./README.md && npm run lint:package",
     "build": "rollup -c",
     "test": "mocha ./test/unit/**/*.test.*"
   },
@@ -32,13 +41,20 @@
     "import": "./dist/env.js",
     "require": "./dist/env.cjs"
   },
+  "envGlobal": {
+    "a": "A"
+  },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE"
   ],
-  "publishConfig": {
-    "access": "public"
+  "directories": {
+    "test": "./test"
   },
   "engines": {
-    "node": ">= 5.12.0"
+    "node": ">=5.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
