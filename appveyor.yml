@@ -3,7 +3,5 @@ image: Ubuntu
 environment:
   nodejs_version: 20
 test_script:
-  - sh: node -v
-  - sh: npm -v
   - sh: npm test
 build: off

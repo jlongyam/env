@@ -27,7 +27,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "rollup -c",
-    "test": "node ./test/test.mjs",
+    "test": "node ./tests/test.mjs",
     "serve": "serve ./",
     "d.ts": "tsc --allowJs --declaration --emitDeclarationOnly dist/env.js"
   },
