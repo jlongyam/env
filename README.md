@@ -1,13 +1,16 @@
 # env
 
-![NPM Version](https://img.shields.io/npm/v/%40jlongyam%2Fenv)
-[![Build status](https://ci.appveyor.com/api/projects/status/18sxcg7000sebf6b?svg=true)](https://ci.appveyor.com/project/jlongyam/env)
+[![AppVeyor](https://shields.fly.dev/appveyor/build/jlongyam/env?logo=appveyor)](https://ci.appveyor.com/project/jlongyam/env)
+[![npm bundle size](https://shields.fly.dev/bundlephobia/min/@jlongyam/env?logo=javascript)](https://bundlephobia.com/package/@jlongyam/env)
+[![npm version](https://badge.fury.io/js/@jlongyam%2Fenv.svg?icon=si%3Anpm)](https://www.npmjs.com/package/@jlongyam/env)
 
 Basic environment detector.
 
 ## Usage
 
 ### CLI
+
+[![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
 
 `npm i @jlongyam/env -S` or `-D`
 
@@ -55,7 +58,7 @@ console.log(env);
 
 ### Browser
 
-CDN: [cdn.jsdelivr.net/npm/@jlongyam/env](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
+[![jsDelivr](https://shields.fly.dev/jsdelivr/npm/hw/@jlongyam/env?color=orange&logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
 
 - IIFE
 
