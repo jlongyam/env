@@ -1,5 +1,7 @@
 # env
 
+![NPM Version](https://img.shields.io/npm/v/%40jlongyam%2Fenv)
+
 Basic environment detector.
 
 ## Usage
@@ -95,7 +97,7 @@ CDN: [cdn.jsdelivr.net/npm/@jlongyam/env](https://cdn.jsdelivr.net/npm/@jlongyam
   (async function () {
     let env = await System.import(["env"]);
     env = env.default;
-    
+
     console.log(env);
   })();
 </script>
@@ -118,7 +120,7 @@ self.postMessage({
 ```html
 <script type="module">
   const worker = new Worker('./worker.js', { type: 'module' });
-  
+
   worker.addEventListener('message', (event) => {
     console.log(event.data)
   });
@@ -127,18 +129,18 @@ self.postMessage({
 
 ## API
 
-- __env__: `window` | `worker` | `cli` | `global`
-- __env.global__: `globalThis` | `global` | `self` | `window`
-
-## Tested
-
-- node: __5.12.0__
-- browser: __IE-8__
+| Namespace     | Type      |
+| ------------- | --------- |
+| `env.browser` | `Boolean` |
+| `env.worker`  | `Boolean` |
+| `env.cli`     | `Boolean` |
+| `env.global`  | `Object`  |
 
 ## Uninstall
 
-- `npm uninstall @jlongyam/env -D` or `-S`
+`npm uninstall @jlongyam/env -D` or `-S`
 
 ## Alternative
 
 - [environment](https://github.com/sindresorhus/environment)
+- [@dekkai/env](https://github.com/dekkai-data/env)
