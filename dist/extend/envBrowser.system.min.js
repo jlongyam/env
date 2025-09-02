@@ -1,6 +1,6 @@
 /*!
 	* @jlongyam/env - Basic environment detector
-	* Version 3.1.3
+	* Version 4.0.0
 	* https://github.com/jlongyam/env
 	* MIT License - 2025
 	*/
