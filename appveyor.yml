@@ -2,7 +2,7 @@ version: 1.0.{build}
 image: Ubuntu
 build: off
 environment:
-  nodejs_version: 20
+  nodejs_version: 22
 install:
   sh: npm install
 test_script:
