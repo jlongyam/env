@@ -1,0 +1,32 @@
+version: 1.0.{build}
+image: macOS
+init:
+- sh: >-
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bashcheck=' export NVM_DIR="$HOME/.nvm"'
+
+    if ! grep -qF "$check" ~/.bashrc; then
+        echo "" >>~/.bashrc
+        echo "# Add NVM to path" >>~/.bashrc
+        echo 'export NVM_DIR="$HOME/.nvm"' >>~/.bashrc
+        echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >>~/.bashrc
+        echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >>~/.bashrc
+    fi
+
+    source ~/.bashrc
+
+    nvm --version
+
+    nvm install 22
+
+    node -v
+
+    ls -1a
+install:
+- sh: npm install
+build: off
+test:
+- sh: echo "Test"
+test_script:
+- sh: npm test
+after_test:
+- sh: echo "Done"
