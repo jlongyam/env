@@ -1,6 +1,7 @@
 # env
 
 ![NPM Version](https://img.shields.io/npm/v/%40jlongyam%2Fenv)
+[![Build status](https://ci.appveyor.com/api/projects/status/18sxcg7000sebf6b?svg=true)](https://ci.appveyor.com/project/jlongyam/env)
 
 Basic environment detector.
 
@@ -131,10 +132,10 @@ self.postMessage({
 
 | Namespace     | Type      |
 | ------------- | --------- |
-| `env.browser` | `Boolean` |
-| `env.worker`  | `Boolean` |
-| `env.cli`     | `Boolean` |
-| `env.global`  | `Object`  |
+| `env.browser` | Boolean |
+| `env.worker`  | Boolean |
+| `env.cli`     | Boolean |
+| `env.global`  | Object  |
 
 ## Uninstall
 
