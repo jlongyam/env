@@ -1,11 +1,17 @@
 version: 1.0.{build}
 image: Ubuntu
-build: off
-environment:
-  nodejs_version: 22
+
+build_scrip:
+  - sh: |
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+      \. "$HOME/.nvm/nvm.sh"
+      nvm install 22
+      node -v
+      nvm current
+      npm -v
+      nvm use 22
 install:
   sh: npm install
 test_script:
-  - sh: node -v
-  - sh: npm -v
   - sh: npm test
+build: off
