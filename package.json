@@ -15,17 +15,20 @@
   "homepage": "https://github.com/jlongyam/env",
   "bugs": "https://github.com/jlongyam/env/issues",
   "readme": "./README.md",
-  "main": "dist/env.cjs",
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "bowser": "^2.12.1",
     "chai": "^6.0.1",
     "eslint": "^9.34.0",
     "globals": "^16.3.0",
+    "install": "^0.13.0",
     "markdownlint-cli": "^0.45.0",
     "mocha": "^11.7.2",
+    "npm": "^11.5.2",
     "npm-package-json-lint": "^9.0.0",
     "npm-package-json-lint-config-default": "^8.0.1",
     "rollup": "^4.50.0",
@@ -37,12 +40,10 @@
     "build": "rollup -c",
     "test": "mocha ./test/unit/**/*.test.*"
   },
+  "main": "dist/env.min.cjs",
   "exports": {
-    "import": "./dist/env.js",
-    "require": "./dist/env.cjs"
-  },
-  "envGlobal": {
-    "a": "A"
+    "import": "./dist/env.min.js",
+    "require": "./dist/env.min.cjs"
   },
   "files": [
     "dist",
@@ -54,7 +55,16 @@
   "engines": {
     "node": ">=5.12.0"
   },
+  "browser": {
+    "envBrowser": {
+      "import": "./dist/extend/envBrowser.min.js",
+      "window": "./dist/extend/envBrowser.iife.min.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@rollup/plugin-babel": "^6.0.4"
   }
 }

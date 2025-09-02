@@ -130,12 +130,25 @@ self.postMessage({
 
 ## API
 
-| Namespace     | Type      |
-| ------------- | --------- |
+| Namespace     | Type    |
+| ------------- | ------- |
 | `env.browser` | Boolean |
 | `env.worker`  | Boolean |
 | `env.cli`     | Boolean |
 | `env.global`  | Object  |
+| `envBrowser`  | Object  |
+
+### Note
+
+To use `envBrowser` in ancient browser **like Internet Explorer**,
+it's require polyfill:
+
+- `Array.isArray`
+- `Array.some`
+- `Object.defineProperty`
+- `Object.defineProperties`
+
+See "**test/experiment/envBrowser.iife.html**"
 
 ## Uninstall
 

@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const env = require("../../dist/env.cjs");
+const env = require("../../dist/env.min.cjs");
 
 describe('Test "dist/env.cjs"', () => {
   it('env.browser', () => {

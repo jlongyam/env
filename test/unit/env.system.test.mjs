@@ -8,7 +8,7 @@ const basePath = url.pathToFileURL(process.cwd()).href;
 setBaseUrl(System, basePath);
 applyImportMap(System, {
   imports: {
-    env: "./dist/env.system.js"
+    env: "./dist/env.system.min.js"
   }
 });
 
