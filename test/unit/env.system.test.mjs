@@ -1,3 +1,4 @@
+import { assert } from "chai";
 import url from "url";
 import systemjs from "systemjs";
 
@@ -15,11 +16,18 @@ const exports = {
   env: await System.import(["env"])
 };
 const env = exports.env.default;
-const result = {}
 
-result.cli = env.cli;
-result.browser = env.browser;
-result.worker = env.worker;
-result.global = (env.global == global) ? 'global': env.global;
-
-console.log(result);
+describe('Test "dist/env.system.js"', () => {
+  it('env.browser', () => {
+    assert(env.browser === false)
+  });
+  it('env.worker', () => {
+    assert(env.worker === false)
+  });
+  it('env.cli', ()=> {
+    assert(env.cli === true)
+  });
+  it('env.global', ()=> {
+    assert(env.global === global)
+  })
+});

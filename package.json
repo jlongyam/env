@@ -19,17 +19,14 @@
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "chai": "^6.0.1",
+    "mocha": "^11.7.2",
     "rollup": "^4.50.0",
-    "serve": "^14.2.4",
-    "systemjs": "^6.15.1",
-    "typescript": "^5.9.2"
+    "systemjs": "^6.15.1"
   },
   "scripts": {
-    "clean": "rm -rf dist",
     "build": "rollup -c",
-    "test": "node ./tests/test.mjs",
-    "serve": "serve ./",
-    "d.ts": "tsc --allowJs --declaration --emitDeclarationOnly dist/env.js"
+    "test": "mocha ./test/unit/**/*.test.*"
   },
   "exports": {
     "import": "./dist/env.js",
@@ -41,5 +38,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "engine": "^5.12"
+  "engine": ">=5.12"
 }

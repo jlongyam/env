@@ -142,7 +142,7 @@ self.postMessage({
 
 ## Uninstall
 
-`npm uninstall @jlongyam/env -D` or `-S`
+`npm un @jlongyam/env -D` or `-S`
 
 ## Alternative
 

@@ -1,4 +1,4 @@
-import env from '../dist/env.js';
+import env from '../../dist/env.js';
 const result = {};
 
 result.cli = env.cli;
