@@ -2,8 +2,8 @@ version: 1.0.{build}
 image: Ubuntu
 environment:
   nodejs_version: 20
-install:
-- sh: npm install
-build: off
 test_script:
-- sh: npm test
+  - sh: node -v
+  - sh: npm -v
+  - sh: npm test
+build: off
