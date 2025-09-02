@@ -14,9 +14,8 @@ build_script:
   - nvm alias default node
   - node --version
   - npm --version
-
+  - npm install
 test_script:
-- sh: npm install
 - sh: npm test
 
 build: off
