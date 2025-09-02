@@ -2,14 +2,14 @@
 
 [![npm version](https://badge.fury.io/js/@jlongyam%2Fenv.svg?icon=si%3Anpm)](https://www.npmjs.com/package/@jlongyam/env)
 [![npm bundle size](https://shields.fly.dev/bundlephobia/min/@jlongyam/env?logo=javascript)](https://bundlephobia.com/package/@jlongyam/env)
+[![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
+[![jsDelivr](https://shields.fly.dev/jsdelivr/npm/hw/@jlongyam/env?color=orange&logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
 
 Basic environment detector.
 
 ## Usage
 
 ### CLI
-
-[![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
 
 `npm i @jlongyam/env -S` or `-D`
 
@@ -56,8 +56,6 @@ console.log(env);
 ```
 
 ### Browser
-
-[![jsDelivr](https://shields.fly.dev/jsdelivr/npm/hw/@jlongyam/env?color=orange&logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
 
 - IIFE
 
