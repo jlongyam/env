@@ -1,0 +1,15 @@
+version: 1.0.{build}
+image: Ubuntu
+init:
+- sh: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    \. "$HOME/.nvm/nvm.sh"
+    nvm install lts
+    node -v
+    nvm current
+    npm -v
+install:
+- sh: npm install
+build: off
+test_script:
+- sh: npm test
