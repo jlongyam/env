@@ -1,21 +1,25 @@
+build: off
 version: 1.0.{build}
 os: Ubuntu
 
 install:
-  - sudo apt-get update
-  - sudo apt-get install -y curl
-
-build_script:
-  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  - export NVM_DIR="$HOME/.nvm"
-  - '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-  - '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
-  - nvm install node
-  - nvm alias default node
-  - node --version
-  - npm --version
-  - npm install
+  - sh: echo "update"
+  - sh: sudo apt-get update
+  - sh: sudo apt-get install -y curl
+  - sh: echo "download nvm"
+  - sh: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  - sh: echo "export"
+  - sh: |
+      export NVM_DIR="$HOME/.nvm"
+      '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+      '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
+  - sh: echo "install node"
+  - sh: nvm install node
+  - sh: nvm alias default node
+  - sh: echo "check version"
+  - sh: node --version
+  - sh: npm --version
+  - sh: echo "install dependencies"
+  - sh: npm install
 test_script:
 - sh: npm test
-
-build: off
