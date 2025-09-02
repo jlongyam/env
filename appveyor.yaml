@@ -16,6 +16,7 @@ build_script:
   - npm --version
 
 test_script:
+- sh: npm install
 - sh: npm test
 
 build: off
