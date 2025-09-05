@@ -176,5 +176,5 @@ See "__test/browser/env.iife.test.html__"
 ## Alternative
 
 - [environment](https://github.com/sindresorhus/environment)
-- [@dekkai/env](https://github.com/dekkai-data/env)
+- [env](https://github.com/dekkai-data/env)
 - [bowser](https://github.com/lancedikson/bowser)
