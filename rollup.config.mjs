@@ -20,7 +20,8 @@ const plugins = [
 	commonjs(),
 	buble(),
 	babel({
-		babelHelpers: 'bundled'
+		babelHelpers: 'bundled',
+		presets: ['@babel/preset-env']
 	})
 ];
 
@@ -28,95 +29,89 @@ export default [{
 // env
 	input: './src/env.mjs',
 	output: [{
+		// umd
+		format: 'umd',
+		file: './dist/env.js',
+		name: 'env',
+		strict: strict,
+		banner: banner,
+	}, {
+		format: 'umd',
+		file: './dist/env.min.js',
+		name: 'env',
+		strict: strict,
+		banner: banner,
+		plugins: [terser()]
+	}, {
 		// es
 		format: 'es',
-		file: './dist/env.js',
+		file: './dist/env.es.js',
 		strict: strict,
 		banner: banner,
 	}, {
 		format: 'es',
-		file: './dist/env.min.js',
-		strict: strict,
-		banner: banner,
-		plugins: [terser()]
-	}, {
-		// cjs
-		format: 'cjs',
-		file: './dist/env.cjs',
-		strict: strict,
-		banner: banner,
-	}, {
-		format: 'cjs',
-		file: './dist/env.min.cjs',
-		strict: strict,
-		banner: banner,
-		plugins: [terser()]
-	}, {
-		// iife
-		format: 'iife',
-		file: './dist/env.iife.js',
-		name: 'env',
-		strict: strict,
-		banner: banner,
-	}, {
-		format: 'iife',
-		file: './dist/env.iife.min.js',
-		name: 'env',
-		strict: strict,
-		banner: banner,
-		plugins: [terser()]
-	}, {
-		// system
-		format: 'system',
-		file: './dist/env.system.js',
-		strict: strict,
-		banner: banner,
-	}, {
-		format: 'system',
-		file: './dist/env.system.min.js',
+		file: './dist/env.es.min.js',
 		strict: strict,
 		banner: banner,
 		plugins: [terser()]
 	}],
 	plugins: plugins
 }, {
+	// envGlobal
+	input: './src/envGlobal.mjs',
+	output: [{
+		// umd
+		format: 'umd',
+		name: 'envGlobal',
+		file: './dist/envGlobal.js',
+		strict: false,
+		banner: banner,
+	}, {
+		format: 'umd',
+		name: 'envGlobal',
+		file: './dist/envGlobal.min.js',
+		strict: false,
+		banner: banner,
+		plugins: [terser()]
+	}, {
+		// es
+		format: 'es',
+		file: './dist/envGlobal.es.js',
+		strict: false,
+		banner: banner
+	}, {
+		format: 'es',
+		file: './dist/envGlobal.es.min.js',
+		strict: false,
+		banner: banner,
+		plugins: [terser()]
+	}]
+},{
 	// envBrowser
 	input: './src/envBrowser.mjs',
 	output: [{
+		// umd
+		format: 'umd',
+		name: 'envBrowser',
+		file: './dist/envBrowser.js',
+		banner: banner,
+		strict: strict
+	}, {
+		format: 'umd',
+		name: 'envBrowser',
+		file: './dist/envBrowser.min.js',
+		strict: strict,
+		banner: banner,
+		plugins: [terser()]
+	}, {
 		// es
 		format: 'es',
-		file: './dist/extend/envBrowser.js',
+		file: './dist/envBrowser.es.js',
 		strict: strict,
 		banner: banner
 	}, {
 		format: 'es',
-		file: './dist/extend/envBrowser.min.js',
-		strict: strict,
-		banner: banner,
-		plugins: [terser()]
-	}, {
-		// iife
-		format: 'iife',
-		name: 'envBrowser',
-		file: './dist/extend/envBrowser.iife.js',
-		banner: banner,
-		strict: strict
-	}, {
-		format: 'iife',
-		name: 'envBrowser',
-		file: './dist/extend/envBrowser.iife.min.js',
-		strict: strict,
-		banner: banner,
-		plugins: [terser()]
-	}, {
-		// system
-		format: 'system',
-		file: './dist/extend/envBrowser.system.js',
-		banner: banner,
-		strict: strict
-	}, {
-		format: 'system',
-		file: './dist/extend/envBrowser.system.min.js',
+		file: './dist/envBrowser.es.min.js',
 		strict: strict,
 		banner: banner,
 		plugins: [terser()]

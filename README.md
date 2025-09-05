@@ -130,12 +130,19 @@ self.postMessage({
 
 ## API
 
+### Base
+
 | Namespace     | Type    |
 | ------------- | ------- |
 | `env.browser` | Boolean |
 | `env.worker`  | Boolean |
 | `env.cli`     | Boolean |
-| `env.global`  | Object  |
+
+### Expansion
+
+| Namespace     | Type    |
+| ------------- | ------- |
+| `envGlobal`   | Object  |
 | `envBrowser`  | Object  |
 
 ### Note

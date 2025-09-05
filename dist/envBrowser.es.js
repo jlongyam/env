@@ -6,6 +6,16 @@
 	* MIT License - 2025
 	*/
 
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
 var BROWSER_ALIASES_MAP = {
@@ -445,9 +455,9 @@ Utils.assign = function assign(obj) {
   if (Object.assign) {
     return Object.assign.apply(Object, [obj].concat(assigners));
   }
-  var loop = function () {
+  var loop = function loop() {
     var assigner = assigners[i];
-    if (typeof assigner === 'object' && assigner !== null) {
+    if (_typeof(assigner) === 'object' && assigner !== null) {
       var keys = Object.keys(assigner);
       keys.forEach(function (key) {
         result[key] = assigner[key];
@@ -1873,7 +1883,7 @@ Parser.prototype.satisfies = function satisfies(checkTree) {
     if (typeof currentDefinition === 'string') {
       browsers[key] = currentDefinition;
       browsersCounter += 1;
-    } else if (typeof currentDefinition === 'object') {
+    } else if (_typeof(currentDefinition) === 'object') {
       platformsAndOSes[key] = currentDefinition;
       platformsAndOSCounter += 1;
     }
@@ -2076,20 +2086,12 @@ staticAccessors.PLATFORMS_MAP.get = function () {
 };
 Object.defineProperties(Bowser, staticAccessors);
 
-var browser$1 = typeof window !== 'undefined';
-var envRuntime = {
-  browser: browser$1};
+var browser = Bowser.getParser(window.navigator.userAgent);
+var envBrowser = {
+  browser: browser.getBrowser(),
+  engine: browser.getEngine(),
+  os: browser.getOS(),
+  platform: browser.getPlatform()
+};
 
-var envBrowser = undefined;
-if (envRuntime.browser) {
-  var browser = Bowser.getParser(window.navigator.userAgent);
-  envBrowser = {
-    browser: browser.getBrowser(),
-    engine: browser.getEngine(),
-    os: browser.getOS(),
-    platform: browser.getPlatform()
-  };
-}
-var envBrowser$1 = envBrowser;
-
-export { envBrowser$1 as default };
+export { envBrowser as default };

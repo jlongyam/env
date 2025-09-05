@@ -16,55 +16,45 @@
   "bugs": "https://github.com/jlongyam/env/issues",
   "readme": "./README.md",
   "devDependencies": {
-    "@eslint/js": "^9.34.0",
+    "@babel/preset-env": "^7.28.3",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "bowser": "^2.12.1",
-    "chai": "^6.0.1",
-    "eslint": "^9.34.0",
-    "globals": "^16.3.0",
-    "install": "^0.13.0",
-    "markdownlint-cli": "^0.45.0",
-    "mocha": "^11.7.2",
-    "npm": "^11.5.2",
-    "npm-package-json-lint": "^9.0.0",
-    "npm-package-json-lint-config-default": "^8.0.1",
+    "http-server": "^14.1.1",
     "rollup": "^4.50.0",
     "systemjs": "^6.15.1"
   },
-  "scripts": {
-    "lint:package": "npmPkgJsonLint ./package.json -c ./package-lint.json",
-    "lint": "eslint ./src && markdownlint ./README.md && npm run lint:package",
-    "build": "rollup -c",
-    "test": "mocha ./test/unit/**/*.test.*"
-  },
-  "main": "dist/env.min.cjs",
+  "main": "dist/env.min.js",
   "exports": {
-    "import": "./dist/env.min.js",
-    "require": "./dist/env.min.cjs"
+    ".": {
+      "import": "./dist/env.es.min.js",
+      "require": "./dist/env.min.js"
+    },
+    "./global": {
+      "import": "./dist/envGlobal.es.min.js",
+      "require": "./dist/envGlobal.min.js"
+    },
+    "./browser": {
+      "import": "./dist/envBrowser.es.min.js",
+      "require": "./dist/envBrowser.min.js"
+    }
   },
   "files": [
     "dist",
     "LICENSE"
   ],
-  "directories": {
-    "test": "./test"
-  },
   "engines": {
     "node": ">=5.12.0"
-  },
-  "browser": {
-    "envBrowser": {
-      "import": "./dist/extend/envBrowser.min.js",
-      "window": "./dist/extend/envBrowser.iife.min.js"
-    }
   },
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@rollup/plugin-babel": "^6.0.4"
+  "scripts": {
+    "bundle": "rollup -c",
+    "test": "node ./test/unit/test.mjs && node ./test/unit/test.js && node ./test/unit/test.sys.mjs",
+    "server": "http-server -c-1 --no-dotfiles"
   }
 }

@@ -6,32 +6,20 @@
 	* MIT License - 2025
 	*/
 
-var browser = typeof window !== 'undefined';
-var worker = typeof importScripts !== 'undefined';
-var cli = !browser && !worker;
-var envRuntime = {
-  browser: browser,
-  worker: worker,
-  cli: cli
-};
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.env = factory());
+})(this, (function () {
+  var browser = typeof window !== 'undefined';
+  var worker = typeof importScripts !== 'undefined';
+  var cli = !browser && !worker;
+  var env = {
+    browser: browser,
+    worker: worker,
+    cli: cli
+  };
 
-var envGlobal = function () {
-  if (typeof globalThis === 'object') {
-    return globalThis;
-  }
-  if (typeof global === 'object') {
-    return global;
-  }
-  if (typeof self === 'object') {
-    return self;
-  }
-  if (typeof window === 'object') {
-    return window;
-  }
-  return {};
-}();
+  return env;
 
-var env = envRuntime;
-env.global = envGlobal;
-
-export { env as default };
+}));

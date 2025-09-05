@@ -6,7 +6,20 @@
 	* MIT License - 2025
 	*/
 
-var envBrowser = (function () {
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.envBrowser = factory());
+})(this, (function () {
+  function _typeof(o) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+      return typeof o;
+    } : function (o) {
+      return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+    }, _typeof(o);
+  }
 
   // NOTE: this list must be up-to-date with browsers listed in
   // test/acceptance/useragentstrings.yml
@@ -447,9 +460,9 @@ var envBrowser = (function () {
     if (Object.assign) {
       return Object.assign.apply(Object, [obj].concat(assigners));
     }
-    var loop = function () {
+    var loop = function loop() {
       var assigner = assigners[i];
-      if (typeof assigner === 'object' && assigner !== null) {
+      if (_typeof(assigner) === 'object' && assigner !== null) {
         var keys = Object.keys(assigner);
         keys.forEach(function (key) {
           result[key] = assigner[key];
@@ -1875,7 +1888,7 @@ var envBrowser = (function () {
       if (typeof currentDefinition === 'string') {
         browsers[key] = currentDefinition;
         browsersCounter += 1;
-      } else if (typeof currentDefinition === 'object') {
+      } else if (_typeof(currentDefinition) === 'object') {
         platformsAndOSes[key] = currentDefinition;
         platformsAndOSCounter += 1;
       }
@@ -2078,22 +2091,14 @@ var envBrowser = (function () {
   };
   Object.defineProperties(Bowser, staticAccessors);
 
-  var browser$1 = typeof window !== 'undefined';
-  var envRuntime = {
-    browser: browser$1};
+  var browser = Bowser.getParser(window.navigator.userAgent);
+  var envBrowser = {
+    browser: browser.getBrowser(),
+    engine: browser.getEngine(),
+    os: browser.getOS(),
+    platform: browser.getPlatform()
+  };
 
-  var envBrowser = undefined;
-  if (envRuntime.browser) {
-    var browser = Bowser.getParser(window.navigator.userAgent);
-    envBrowser = {
-      browser: browser.getBrowser(),
-      engine: browser.getEngine(),
-      os: browser.getOS(),
-      platform: browser.getPlatform()
-    };
-  }
-  var envBrowser$1 = envBrowser;
+  return envBrowser;
 
-  return envBrowser$1;
-
-})();
+}));
