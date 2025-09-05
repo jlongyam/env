@@ -177,3 +177,4 @@ See "**test/experiment/envBrowser.iife.html**"
 
 - [environment](https://github.com/sindresorhus/environment)
 - [@dekkai/env](https://github.com/dekkai-data/env)
+- [bowser](https://github.com/lancedikson/bowser)
