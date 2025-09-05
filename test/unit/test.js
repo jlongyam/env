@@ -1,5 +1,5 @@
 const env = require("../../dist/env.min.js");
-const envGlobal = require("../../dist/envGlobal.min.js");
+const envGlobal = require("../../dist/global/envGlobal.min.js");
 const styleText = require("util").styleText;
 const test = console;
 
@@ -12,7 +12,7 @@ test.group(styleText('green','Test Commonjs "dist/env.js"'));
     test.assert(env.cli === true)
 test.groupEnd();
 
-test.group(styleText('green','Test CommonJS "dist/envGlobal.js"'));
+test.group(styleText('green','Test CommonJS "dist/global/envGlobal.js"'));
   test.info(styleText('gray','# envGlobal'));
     test.assert(envGlobal === global);
 test.groupEnd();

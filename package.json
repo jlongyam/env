@@ -6,7 +6,9 @@
     "env",
     "environment"
   ],
-  "author": "jlongyam",
+  "author": {
+    "name": "jlongyam"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,20 +32,20 @@
   "main": "dist/env.min.js",
   "exports": {
     ".": {
-      "import": "./dist/env.es.min.js",
-      "require": "./dist/env.min.js"
+      "require": "./dist/env.min.js",
+      "import": "./dist/env.es.min.js"
     },
     "./global": {
-      "import": "./dist/envGlobal.es.min.js",
-      "require": "./dist/envGlobal.min.js"
+      "require": "./dist/global/envGlobal.min.js",
+      "import": "./dist/global/envGlobal.es.min.js"
     },
     "./browser": {
-      "import": "./dist/envBrowser.es.min.js",
-      "require": "./dist/envBrowser.min.js"
+      "require": "./dist/browser/envBrowser.min.js",
+      "import": "./dist/browser/envBrowser.es.min.js"
     }
   },
   "files": [
-    "dist",
+    "dist/**/*",
     "LICENSE"
   ],
   "engines": {
@@ -53,7 +55,7 @@
     "access": "public"
   },
   "scripts": {
-    "bundle": "rollup -c",
+    "build": "rollup -c",
     "test": "node ./test/unit/test.mjs && node ./test/unit/test.js && node ./test/unit/test.sys.mjs",
     "server": "http-server -c-1 --no-dotfiles"
   }

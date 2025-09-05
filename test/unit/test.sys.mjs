@@ -9,7 +9,7 @@ setBaseUrl(System, basePath);
 applyImportMap(System, {
   imports: {
     env: "./dist/env.js",
-    envGlobal: "./dist/envGlobal.js"
+    envGlobal: "./dist/global/envGlobal.js"
   }
 });
 
@@ -32,7 +32,7 @@ test.group(styleText('green','Test SytemJS "dist/env.js"'));
     test.assert(env.cli === true)
 test.groupEnd();
 
-test.group(styleText('green','Test SystemJS "dist/envGlobal.js"'));
+test.group(styleText('green','Test SystemJS "dist/global/envGlobal.js"'));
   test.info(styleText('gray','# envGlobal'));
     test.assert(envGlobal === global);
 test.groupEnd();

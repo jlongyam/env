@@ -140,6 +140,13 @@ self.postMessage({
 
 ### Expansion
 
+Usage example using __Expansion__ namespace:
+
+```js
+import envGlobal from "@jlongyam/env/global";
+import envBrowser from "@jlongyam/env/browser";
+```
+
 | Namespace     | Type    |
 | ------------- | ------- |
 | `envGlobal`   | Object  |
