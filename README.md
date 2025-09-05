@@ -59,7 +59,7 @@ console.log(env);
 - IIFE
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"></script>
 <script>
   console.log(env)
 </script>
@@ -71,7 +71,7 @@ console.log(env);
 <script type="importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.es.min.js"
     }
   }
 </script>
@@ -89,7 +89,7 @@ console.log(env);
 <script type="systemjs-importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.system.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"
     }
   }
 </script>
@@ -108,7 +108,7 @@ console.log(env);
 - worker.js
 
 ```js
-import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.js";
+import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.es.min.js";
 
 self.postMessage({
   result: env.worker
@@ -159,7 +159,7 @@ const envGlobal = require('@jlongyam/env/dist/global/envGlobal');
 
 ### Note
 
-To use `envBrowser` in ancient browser **like Internet Explorer**,
+To use `envBrowser` in ancient browser like __Internet Explorer__,
 it's require polyfill:
 
 - `Array.isArray`
@@ -167,7 +167,7 @@ it's require polyfill:
 - `Object.defineProperty`
 - `Object.defineProperties`
 
-See "**test/experiment/envBrowser.iife.html**"
+See "__test/browser/env.iife.test.html__"
 
 ## Uninstall
 
