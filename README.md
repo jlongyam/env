@@ -147,6 +147,12 @@ import envGlobal from "@jlongyam/env/global";
 import envBrowser from "@jlongyam/env/browser";
 ```
 
+Alternative method for __legacy__ node:
+
+```js
+const envGlobal = require('@jlongyam/env/dist/global/envGlobal');
+```
+
 | Namespace     | Type    |
 | ------------- | ------- |
 | `envGlobal`   | Object  |
