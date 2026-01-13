@@ -1,4 +1,5 @@
 # env
+
 [![npm (scoped)](https://shields.fly.dev/npm/v/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
 [![npm bundle size](https://shields.fly.dev/bundlephobia/min/@jlongyam/env?logo=javascript)](https://bundlephobia.com/package/@jlongyam/env)
 [![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
@@ -236,8 +237,8 @@ See "__test/browser/env.iife.test.html__"
 
 `npm un @jlongyam/env -D` or `-S`
 
-## Alternative
+## Related
 
 - [environment](https://github.com/sindresorhus/environment)
-- [env](https://github.com/dekkai-data/env)
-- [bowser](https://github.com/lancedikson/bowser)
+- [jsenv](https://github.com/jsenv/core)
+- [path-key](https://github.com/sindresorhus/path-key)
