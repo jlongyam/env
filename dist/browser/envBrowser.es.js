@@ -1,9 +1,9 @@
 
 	/*!
 	* @jlongyam/env - Basic environment detector
-	* Version 4.0.1
+	* Version 4.1.2
 	* https://github.com/[object Object]/env
-	* MIT License - 2025
+	* MIT License - 2026
 	*/
 
 function _typeof(o) {

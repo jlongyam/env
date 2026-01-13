@@ -30,22 +30,27 @@
     "systemjs": "^6.15.1"
   },
   "main": "dist/env.min.js",
+  "types": "src/env.d.ts",
   "exports": {
     ".": {
       "require": "./dist/env.min.js",
-      "import": "./dist/env.es.min.js"
+      "import": "./dist/env.es.min.js",
+      "types": "./src/env.d.ts"
     },
     "./global": {
       "require": "./dist/global/envGlobal.min.js",
-      "import": "./dist/global/envGlobal.es.min.js"
+      "import": "./dist/global/envGlobal.es.min.js",
+      "types": "./src/envGlobal.d.ts"
     },
     "./browser": {
       "require": "./dist/browser/envBrowser.min.js",
-      "import": "./dist/browser/envBrowser.es.min.js"
+      "import": "./dist/browser/envBrowser.es.min.js",
+      "types": "./src/envBrowser.d.ts"
     }
   },
   "files": [
     "dist",
+    "src/*.d.ts",
     "LICENSE"
   ],
   "engines": {
@@ -55,7 +60,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && npm run build:declarations",
+    "build:declarations": "mkdir -p dist && cp src/env.d.ts dist/ && mkdir -p dist/global && cp src/envGlobal.d.ts dist/global/ && mkdir -p dist/browser && cp src/envBrowser.d.ts dist/browser/",
     "test": "node ./test/unit/test.mjs && node ./test/unit/test.js && node ./test/unit/test.sys.mjs",
     "server": "http-server -c-1 --no-dotfiles"
   }

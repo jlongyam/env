@@ -28,6 +28,19 @@ const env = require("@jlongyam/env");
 console.log(env);
 ```
 
+- TypeScript
+
+```ts
+import env from "@jlongyam/env";
+import type { EnvDetection } from "@jlongyam/env";
+
+const myEnv: EnvDetection = env;
+
+if (myEnv.browser) {
+  console.log("Running in browser");
+}
+```
+
 - SystemJS
 
 `npm i systemjs`
@@ -146,6 +159,26 @@ import envGlobal from "@jlongyam/env/global";
 import envBrowser from "@jlongyam/env/browser";
 ```
 
+- TypeScript
+
+```ts
+import envGlobal from "@jlongyam/env/global";
+import envBrowser from "@jlongyam/env/browser";
+import type { GlobalObject, EnvBrowser } from "@jlongyam/env";
+
+const global: GlobalObject = envGlobal;
+const browser: EnvBrowser = envBrowser;
+
+// Access browser details
+console.log(browser.browser.name);    // e.g., "Chrome"
+console.log(browser.os.name);         // e.g., "macOS"
+
+// Access global object
+if ('fetch' in global) {
+  console.log('Fetch API available');
+}
+```
+
 Alternative method for __legacy__ node:
 
 ```js
@@ -156,6 +189,36 @@ const envGlobal = require('@jlongyam/env/dist/global/envGlobal');
 | ------------- | ------- |
 | `envGlobal`   | Object  |
 | `envBrowser`  | Object  |
+
+### TypeScript Support
+
+This package includes TypeScript declaration files for all modules:
+
+- `@jlongyam/env` - Main environment detection
+- `@jlongyam/env/global` - Global object access
+- `@jlongyam/env/browser` - Browser-specific detection
+
+#### Available Types
+
+```ts
+// Main module
+interface EnvDetection {
+  browser: boolean;
+  worker: boolean;
+  cli: boolean;
+}
+
+// Browser module
+interface EnvBrowser {
+  browser: { name?: string; version?: string };
+  engine: { name?: string; version?: string };
+  os: { name?: string; version?: string };
+  platform: { type?: string; vendor?: string };
+}
+
+// Global module
+type GlobalObject = Record<string, any>;
+```
 
 ### Note
 
