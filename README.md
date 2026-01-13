@@ -242,3 +242,5 @@ See "__test/browser/env.iife.test.html__"
 - [environment](https://github.com/sindresorhus/environment)
 - [jsenv](https://github.com/jsenv/core)
 - [path-key](https://github.com/sindresorhus/path-key)
+- [temp-dir](https://github.com/sindresorhus/temp-dir)
+- [dotenv](https://github.com/motdotla/dotenv)
