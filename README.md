@@ -101,7 +101,7 @@ if (myEnv.browser) {
 <details name="browser"><summary>IIFE</summary>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.min.js"></script>
 <script>
   console.log(env)
 </script>
