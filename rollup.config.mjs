@@ -31,12 +31,6 @@ export default [{
 	output: [{
 		// umd
 		format: 'umd',
-		file: './dist/env.js',
-		name: 'env',
-		strict: strict,
-		banner: banner,
-	}, {
-		format: 'umd',
 		file: './dist/env.min.js',
 		name: 'env',
 		strict: strict,
@@ -44,11 +38,6 @@ export default [{
 		plugins: [terser()]
 	}, {
 		// es
-		format: 'es',
-		file: './dist/env.es.js',
-		strict: strict,
-		banner: banner,
-	}, {
 		format: 'es',
 		file: './dist/env.es.min.js',
 		strict: strict,
@@ -63,23 +52,12 @@ export default [{
 		// umd
 		format: 'umd',
 		name: 'envGlobal',
-		file: './dist/global/envGlobal.js',
-		strict: false,
-		banner: banner,
-	}, {
-		format: 'umd',
-		name: 'envGlobal',
 		file: './dist/global/envGlobal.min.js',
 		strict: false,
 		banner: banner,
 		plugins: [terser()]
 	}, {
 		// es
-		format: 'es',
-		file: './dist/global/envGlobal.es.js',
-		strict: false,
-		banner: banner
-	}, {
 		format: 'es',
 		file: './dist/global/envGlobal.es.min.js',
 		strict: false,
@@ -93,23 +71,12 @@ export default [{
 		// umd
 		format: 'umd',
 		name: 'envBrowser',
-		file: './dist/browser/envBrowser.js',
-		banner: banner,
-		strict: strict
-	}, {
-		format: 'umd',
-		name: 'envBrowser',
 		file: './dist/browser/envBrowser.min.js',
 		strict: strict,
 		banner: banner,
 		plugins: [terser()]
 	}, {
 		// es
-		format: 'es',
-		file: './dist/browser/envBrowser.es.js',
-		strict: strict,
-		banner: banner
-	}, {
 		format: 'es',
 		file: './dist/browser/envBrowser.es.min.js',
 		strict: strict,

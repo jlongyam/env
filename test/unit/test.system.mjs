@@ -8,8 +8,8 @@ const basePath = url.pathToFileURL(process.cwd()).href;
 setBaseUrl(System, basePath);
 applyImportMap(System, {
   imports: {
-    env: "./dist/env.js",
-    envGlobal: "./dist/global/envGlobal.js"
+    env: "./dist/env.min.js",
+    envGlobal: "./dist/global/envGlobal.min.js"
   }
 });
 
@@ -23,7 +23,7 @@ const env = exports.env.default;
 const envGlobal = exports.envGlobal.default;
 const test = console;
 
-test.group(styleText('green','Test SytemJS "dist/env.js"'));
+test.group(styleText('green','Test SytemJS "dist/env.min.js"'));
   test.info(styleText('gray','# env.browser'));
     test.assert(env.browser === false);
   test.info(styleText('gray','# env.worker'));
@@ -32,7 +32,7 @@ test.group(styleText('green','Test SytemJS "dist/env.js"'));
     test.assert(env.cli === true)
 test.groupEnd();
 
-test.group(styleText('green','Test SystemJS "dist/global/envGlobal.js"'));
+test.group(styleText('green','Test SystemJS "dist/global/envGlobal.min.js"'));
   test.info(styleText('gray','# envGlobal'));
     test.assert(envGlobal === global);
 test.groupEnd();
