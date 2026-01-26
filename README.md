@@ -5,15 +5,17 @@
 [![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
 [![jsDelivr](https://shields.fly.dev/jsdelivr/npm/hw/@jlongyam/env?color=orange&logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
 
-Basic environment detector.
+Basic environment detector
+
+[Demo](https://jlongyam.github.io/env)
 
 ## Usage
 
-### CLI
+### Node
 
-`npm i @jlongyam/env -S` or `-D`
+Installation: `npm i @jlongyam/env`
 
-- ES Module
+<details name="cli"><summary>ES6 Module</summary>
 
 ```js
 import env from "@jlongyam/env";
@@ -21,7 +23,9 @@ import env from "@jlongyam/env";
 console.log(env);
 ```
 
-- CommonJS
+</details>
+
+<details name="cli"><summary>CommonJS</summary>
 
 ```js
 const env = require("@jlongyam/env");
@@ -29,20 +33,9 @@ const env = require("@jlongyam/env");
 console.log(env);
 ```
 
-- TypeScript
+</details>
 
-```ts
-import env from "@jlongyam/env";
-import type { EnvDetection } from "@jlongyam/env";
-
-const myEnv: EnvDetection = env;
-
-if (myEnv.browser) {
-  console.log("Running in browser");
-}
-```
-
-- SystemJS
+<details name="cli"><summary>SystemJS</summary>
 
 `npm i systemjs`
 
@@ -68,24 +61,32 @@ const env = exports.env.default;
 console.log(env);
 ```
 
-### Browser
+</details>
 
-- IIFE
+<details name="cli"><summary>TypeScript</summary>
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"></script>
-<script>
-  console.log(env)
-</script>
+```ts
+import env from "@jlongyam/env";
+import type { EnvDetection } from "@jlongyam/env";
+
+const myEnv: EnvDetection = env;
+
+if (myEnv.browser) {
+  console.log("Running in browser");
+}
 ```
 
-- ES Module
+</details>
+
+### Browser
+
+<details name="browser"><summary>ES Module</summary>
 
 ```html
 <script type="importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.es.min.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.js"
     }
   }
 </script>
@@ -96,14 +97,27 @@ console.log(env);
 </script>
 ```
 
-- SystemJS
+</details>
+
+<details name="browser"><summary>IIFE</summary>
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"></script>
+<script>
+  console.log(env)
+</script>
+```
+
+</details>
+
+<details name="browser"><summary>SystemJS</summary>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
 <script type="systemjs-importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env/dist/env.min.js"
+      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.min.js"
     }
   }
 </script>
@@ -117,19 +131,21 @@ console.log(env);
 </script>
 ```
 
-### Worker
+</details>
 
-- worker.js
+<details name="browser"><summary>Worker</summary>
+
+#### 1. worker.js
 
 ```js
-import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env/src/env.es.min.js";
+import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/src/env.es.min.js";
 
 self.postMessage({
   result: env.worker
 })
 ```
 
-- front
+#### 2. HTML
 
 ```html
 <script type="module">
@@ -141,26 +157,40 @@ self.postMessage({
 </script>
 ```
 
+</details>
+
 ## API
 
-### Base
+<details name="api"><summary>Base</summary>
 
 | Namespace     | Type    |
 | ------------- | ------- |
-| `env.browser` | Boolean |
-| `env.worker`  | Boolean |
-| `env.cli`     | Boolean |
+| `env.browser` | boolean |
+| `env.worker`  | boolean |
+| `env.cli`     | boolean |
 
-### Expansion
+</details>
 
-Usage example using __Expansion__ namespace:
+<details name="api"><summary>Plugins</summary>
+
+| Namespace     | Type    |
+| ------------- | ------- |
+| `envGlobal`   | Object  |
+| `envBrowser`  | Object  |
+
+
+Usage example using __plugin__ namespace:
+
+<details name="plugin"><summary>JS</summary>
 
 ```js
 import envGlobal from "@jlongyam/env/global";
 import envBrowser from "@jlongyam/env/browser";
 ```
 
-- TypeScript
+</details>
+
+<details name="plugin"><summary>TypeScript</summary>
 
 ```ts
 import envGlobal from "@jlongyam/env/global";
@@ -170,28 +200,27 @@ import type { GlobalObject, EnvBrowser } from "@jlongyam/env";
 const global: GlobalObject = envGlobal;
 const browser: EnvBrowser = envBrowser;
 
-// Access browser details
-console.log(browser.browser.name);    // e.g., "Chrome"
-console.log(browser.os.name);         // e.g., "macOS"
+console.log(browser.browser.name);
+console.log(browser.os.name);
 
-// Access global object
 if ('fetch' in global) {
   console.log('Fetch API available');
 }
 ```
 
-Alternative method for __legacy__ node:
+</details>
+
+<details name="plugin"><summary>Legacy</summary>
 
 ```js
 const envGlobal = require('@jlongyam/env/dist/global/envGlobal');
 ```
 
-| Namespace     | Type    |
-| ------------- | ------- |
-| `envGlobal`   | Object  |
-| `envBrowser`  | Object  |
+</details>
 
-### TypeScript Support
+</details>
+
+## Summary
 
 This package includes TypeScript declaration files for all modules:
 
@@ -199,17 +228,15 @@ This package includes TypeScript declaration files for all modules:
 - `@jlongyam/env/global` - Global object access
 - `@jlongyam/env/browser` - Browser-specific detection
 
-#### Available Types
+Types:
 
 ```ts
-// Main module
 interface EnvDetection {
   browser: boolean;
   worker: boolean;
   cli: boolean;
 }
 
-// Browser module
 interface EnvBrowser {
   browser: { name?: string; version?: string };
   engine: { name?: string; version?: string };
@@ -217,30 +244,32 @@ interface EnvBrowser {
   platform: { type?: string; vendor?: string };
 }
 
-// Global module
 type GlobalObject = Record<string, any>;
 ```
 
-### Note
+## Note
 
 To use `envBrowser` in ancient browser like __Internet Explorer__,
-it's require polyfill:
+
+require polyfill:
 
 - `Array.isArray`
 - `Array.some`
 - `Object.defineProperty`
 - `Object.defineProperties`
 
-See "__test/browser/env.iife.test.html__"
+Use scripts in __"test/browser/polyfill"__ if necessary.
 
-## Uninstall
+Developer note:
 
-`npm un @jlongyam/env -D` or `-S`
+- node `util.styleText` not cross-platform, require alternative
+- browser `console` not really good displaying Object
 
-## Related
+See also:
 
 - [environment](https://github.com/sindresorhus/environment)
-- [jsenv](https://github.com/jsenv/core)
 - [path-key](https://github.com/sindresorhus/path-key)
 - [temp-dir](https://github.com/sindresorhus/temp-dir)
 - [dotenv](https://github.com/motdotla/dotenv)
+
+[MIT](LICENSE)
