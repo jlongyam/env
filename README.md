@@ -265,11 +265,31 @@ Developer note:
 - node `util.styleText` not cross-platform, require alternative
 - browser `console` not really good displaying Object
 
-See also:
+## Contribution
+
+Clone this repository
+
+- clone this repo
+- create test
+
+__package.json__
+
+```json
+{
+  "dependencies": "file:point/to/env"
+}
+```
+
+- Improve code
+- Pull request
+  
+## Alternative
 
 - [environment](https://github.com/sindresorhus/environment)
 - [path-key](https://github.com/sindresorhus/path-key)
 - [temp-dir](https://github.com/sindresorhus/temp-dir)
 - [dotenv](https://github.com/motdotla/dotenv)
+
+## License
 
 [MIT](LICENSE)
