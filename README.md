@@ -1,9 +1,5 @@
 # env
 
-[![npm (scoped)](https://shields.fly.dev/npm/v/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
-[![npm](https://shields.fly.dev/npm/dw/@jlongyam/env?logo=npm)](https://www.npmjs.com/package/@jlongyam/env)
-[![jsDelivr](https://shields.fly.dev/jsdelivr/npm/hw/@jlongyam/env?color=orange&logo=jsdelivr&logoColor=white)](https://cdn.jsdelivr.net/npm/@jlongyam/env/)
-
 Basic environment detector
 
 [Demo](https://jlongyam.github.io/env)
@@ -30,49 +26,6 @@ console.log(env);
 const env = require("@jlongyam/env");
 
 console.log(env);
-```
-
-</details>
-
-<details name="cli"><summary>SystemJS</summary>
-
-`npm i systemjs`
-
-```js
-import url from "url";
-import systemjs from "systemjs";
-
-const { System, applyImportMap, setBaseUrl } = systemjs;
-const basePath = url.pathToFileURL(process.cwd()).href;
-
-setBaseUrl(System, basePath);
-applyImportMap(System, {
-  imports: {
-    env: "./node_modules/@jlongyam/env/dist/system/env.js"
-  }
-});
-
-const exports = {
-  env: await System.import(["env"])
-};
-const env = exports.env.default;
-
-console.log(env);
-```
-
-</details>
-
-<details name="cli"><summary>TypeScript</summary>
-
-```ts
-import env from "@jlongyam/env";
-import type { EnvDetection } from "@jlongyam/env";
-
-const myEnv: EnvDetection = env;
-
-if (myEnv.browser) {
-  console.log("Running in browser");
-}
 ```
 
 </details>
@@ -104,29 +57,6 @@ if (myEnv.browser) {
 <script src="https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.min.js"></script>
 <script>
   console.log(env)
-</script>
-```
-
-</details>
-
-<details name="browser"><summary>SystemJS</summary>
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-<script type="systemjs-importmap">
-  {
-    "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.min.js"
-    }
-  }
-</script>
-<script>
-  (async function () {
-    let env = await System.import(["env"]);
-    env = env.default;
-
-    console.log(env);
-  })();
 </script>
 ```
 
@@ -227,25 +157,6 @@ This package includes TypeScript declaration files for all modules:
 - `@jlongyam/env/global` - Global object access
 - `@jlongyam/env/browser` - Browser-specific detection
 
-Types:
-
-```ts
-interface EnvDetection {
-  browser: boolean;
-  worker: boolean;
-  cli: boolean;
-}
-
-interface EnvBrowser {
-  browser: { name?: string; version?: string };
-  engine: { name?: string; version?: string };
-  os: { name?: string; version?: string };
-  platform: { type?: string; vendor?: string };
-}
-
-type GlobalObject = Record<string, any>;
-```
-
 ## Note
 
 To use `envBrowser` in ancient browser like __Internet Explorer__,
@@ -257,37 +168,18 @@ require polyfill:
 - `Object.defineProperty`
 - `Object.defineProperties`
 
-Use scripts in __"test/browser/polyfill"__ if necessary.
+Use scripts in __"test/polyfill"__ if necessary.
 
-Developer note:
-
-- node `util.styleText` not cross-platform, require alternative
-- browser `console` not really good displaying Object
-
-## Contribution
-
-Clone this repository
-
-- clone this repo
-- create test
-
-__package.json__
-
-```json
-{
-  "dependencies": "file:point/to/env"
-}
-```
-
-- Improve code
-- Pull request
-  
 ## Alternative
 
 - [environment](https://github.com/sindresorhus/environment)
 - [path-key](https://github.com/sindresorhus/path-key)
 - [temp-dir](https://github.com/sindresorhus/temp-dir)
 - [dotenv](https://github.com/motdotla/dotenv)
+
+## Related
+
+- [Repo](https://github.com/jlongyam/repo)
 
 ## License
 
