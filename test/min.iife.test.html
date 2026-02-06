@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>test: IIFE</title>
+  <title>test: Minify IIFE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- legacy -->
   <script src="./polyfill/Array.isArray.js"></script>
@@ -15,15 +15,15 @@
   <script src="./lib/mobileconsole.js"></script>
   <link rel="stylesheet" href="./lib/mobileconsole.css">
   <!-- main -->
-  <script src="../../dist/env.min.js"></script>
-  <script src="../../dist/global/envGlobal.min.js"></script>
-  <script src="../../dist/browser/envBrowser.min.js"></script>
+  <script src="../dist/iife/env.min.js"></script>
+  <script src="../dist/iife/envGlobal.min.js"></script>
+  <script src="../dist/iife/envBrowser.min.js"></script>
 </head>
 
 <body>
   <pre>See <b>dev-console</b> for details</pre>
   <script>
-    console.group('%cTest IIFE "dist/env.min.js"', 'color: green');
+    console.group('%cTest IIFE "dist/iife/env.min.js"', 'color: green');
       console.info('%cenv.browser', 'color: gray');
         console.assert(env.browser === true);
       console.info('%cenv.worker', 'color: gray');
@@ -31,12 +31,12 @@
       console.info('%cenv.cli', 'color: gray');
         console.assert(env.cli === false)
     console.groupEnd();
-    
-    console.group('%cTest IIFE "dist/global/envGlobal.min.js"', 'color: green');
+
+    console.group('%cTest IIFE "dist/iife/envGlobal.min.js"', 'color: green');
       console.info('%cenvGlobal', 'color: gray');
         console.assert(envGlobal == window);
       console.groupEnd();
-      console.group('%cTest IIFE "dist/browser/envBrowser.min.js"', 'color: green');
+      console.group('%cTest IIFE "dist/iife/envBrowser.min.js"', 'color: green');
       console.info('%cenvBrowser', 'color: gray');
     console.dir(envBrowser);
     console.groupEnd();

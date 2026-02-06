@@ -15,44 +15,11 @@
     "url": "git+https://github.com/jlongyam/env.git"
   },
   "homepage": "https://github.com/jlongyam/env",
-  "bugs": "https://github.com/jlongyam/env/issues",
+  "main": "dist/cjs/env.min.js",
+  "types": "types/env.d.ts",
+  "type": "commonjs",
   "engines": {
     "node": ">=5.12.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "dist/env.min.js",
-  "types": "types/env.es.min.d.ts",
-  "type": "commonjs",
-  "readme": "./README.md",
-  "files": [
-    "dist",
-    "types",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "require": "./dist/env.min.js",
-      "import": "./dist/env.es.min.js",
-      "types": "./types/env.es.min.d.ts"
-    },
-    "./global": {
-      "require": "./dist/global/envGlobal.min.js",
-      "import": "./dist/global/envGlobal.es.min.js",
-      "types": "./types/global/envGlobal.es.min.d.ts"
-    },
-    "./browser": {
-      "require": "./dist/browser/envBrowser.min.js",
-      "import": "./dist/browser/envBrowser.es.min.js",
-      "types": "./types/browser/envBrowser.es.min.d.ts"
-    }
-  },
-  "scripts": {
-    "build": "rm -rf ./dist && rollup -c",
-    "d.ts": "tsc",
-    "server": "http-server -c-1 --no-dotfiles",
-    "test": "node ./test/unit/test.mjs && node ./test/unit/test.js && node ./test/unit/test.system.mjs"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.3",
@@ -61,11 +28,51 @@
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
+    "@web/dev-server": "^0.4.6",
     "bowser": "^2.12.1",
-    "http-server": "^14.1.1",
     "rollup": "^4.50.0",
-    "systemjs": "^6.15.1",
-    "typescript": "^5.9.3",
-    "tsc": "^2.0.4"
-  }
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "test:es": "node ./test/test.mjs",
+    "build": "rollup -c",
+    "test:cjs": "node ./test/test.js",
+    "server": "web-dev-server",
+    "types": "tsc",
+    "build:minify": "rollup -c --config-minify",
+    "test:min:cjs": "node ./test/min.test.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/env.min.js",
+      "import": "./dist/es/env.min.js",
+      "browser": "./dist/iife/env.min.js",
+      "default": "./dist/es/env.min.js",
+      "types": "./types/env.d.ts"
+    },
+    "./global": {
+      "require": "./dist/cjs/envGlobal.min.js",
+      "import": "./dist/es/envGlobal.min.js",
+      "browser": "./dist/iife/envGlobal.min.js",
+      "default": "./dist/es/envGlobal.min.js",
+      "types": "./types/envGlobal.d.ts"
+    },
+    "./browser": {
+      "require": "./dist/cjs/envBrowser.min.js",
+      "import": "./dist/es/envBrowser.min.js",
+      "browser": "./dist/iife/envBrowser.min.js",
+      "default": "./dist/es/envBrowser.min.js",
+      "types": "./types/envBrowser.d.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "./README.md",
+    "./dist",
+    "./types",
+    "./LICENSE"
+  ]
 }

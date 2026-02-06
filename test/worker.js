@@ -1,5 +1,5 @@
-import env from "../../dist/env.es.min.js";
-import envGlobal from "../../dist/global/envGlobal.es.min.js"
+import env from "../dist/es/env.js";
+import envGlobal from "../dist/es/envGlobal.js"
 
 const result = {};
 

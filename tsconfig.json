@@ -6,7 +6,7 @@
     "outDir": "./types"
   },
   "include": [
-    "./dist/**/*.es.min.js"
+    "./dist/es/*.js"
   ],
   "exclude": [
     "node_modules",

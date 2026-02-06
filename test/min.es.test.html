@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test: ESModule</title>
+  <title>test: Minify ESModule</title>
   <!-- console -->
   <script src="./lib/mobileconsole.js"></script>
   <link rel="stylesheet" href="./lib/mobileconsole.css">
@@ -13,11 +13,11 @@
 <body>
   <pre>See <b>dev-console</b> for details</pre>
   <script type="module">
-    import env from '../../dist/env.es.min.js';
-    import envGlobal from "../../dist/global/envGlobal.es.min.js";
-    import envBrowser from "../../dist/browser/envBrowser.es.min.js";
-    
-    console.group('%cTest ESModule "dist/env.es.js"', 'color: green');
+    import env from '../dist/es/env.min.js';
+    import envGlobal from "../dist/es/envGlobal.min.js";
+    import envBrowser from "../dist/es/envBrowser.min.js";
+
+    console.group('%cTest ESModule "dist/es/env.min.js"', 'color: green');
       console.info('%cenv.browser', 'color: gray');
         console.assert(env.browser === true);
       console.info('%cenv.worker', 'color: gray');
@@ -26,12 +26,12 @@
         console.assert(env.cli === false)
     console.groupEnd();
 
-    console.group('%cTest ESModule "dist/global/envGlobal.es.js"', 'color: green');
+    console.group('%cTest ESModule "dist/es/envGlobal.min.js"', 'color: green');
       console.info('%cenvGlobal', 'color: gray');
         console.assert(envGlobal == window);
     console.groupEnd();
 
-    console.group('%cTest ESModule "dist/browser/envBrowser.es.js"', 'color: green');
+    console.group('%cTest ESModule "dist/es/envBrowser.min.js"', 'color: green');
       console.info('%cenvBrowser', 'color: gray');
         console.dir(envBrowser);
     console.groupEnd();
