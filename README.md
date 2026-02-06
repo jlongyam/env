@@ -38,7 +38,7 @@ console.log(env);
 <script type="importmap">
   {
     "imports": {
-      "env": "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.js"
+      "env": "https://esm.sh/gh/jlongyam/env"
     }
   }
 </script>
@@ -54,7 +54,7 @@ console.log(env);
 <details name="browser"><summary>IIFE</summary>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/dist/env.min.js"></script>
+<script src="https://esm.sh/gh/jlongyam/env"></script>
 <script>
   console.log(env)
 </script>
@@ -67,7 +67,7 @@ console.log(env);
 #### 1. worker.js
 
 ```js
-import env from "https://cdn.jsdelivr.net/npm/@jlongyam/env@latest/src/env.es.min.js";
+import env from "https://esm.sh/gh/jlongyam/env";
 
 self.postMessage({
   result: env.worker
