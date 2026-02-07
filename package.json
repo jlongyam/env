@@ -42,6 +42,7 @@
     "test": "npm run test:es && npm run test:cjs",
     "server": "web-dev-server",
     "types": "tsc",
+    "changelog": "repo changelog",
     "prepare": "repo prepare"
   },
   "exports": {
