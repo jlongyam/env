@@ -8,7 +8,7 @@ Basic environment detector
 
 ### Node
 
-Installation: `npm i github:@jlongyam/env`
+Installation: `npm i @jlongyam/env`
 
 <details name="cli"><summary>ES6 Module</summary>
 
