@@ -15,7 +15,7 @@
     "url": "git+https://github.com/jlongyam/env.git"
   },
   "homepage": "https://github.com/jlongyam/env",
-  "main": "dist/cjs/env.min.js",
+  "main": "dist/cjs/env.js",
   "types": "types/env.d.ts",
   "type": "commonjs",
   "engines": {
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.3",
+    "@jlongyam/repo": "^2.0.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-commonjs": "^28.0.6",
@@ -38,31 +39,31 @@
     "test:es": "node ./test/test.mjs",
     "build": "rollup -c",
     "test:cjs": "node ./test/test.js",
+    "test": "npm run test:es && npm run test:cjs",
     "server": "web-dev-server",
     "types": "tsc",
-    "build:minify": "rollup -c --config-minify",
-    "test:min:cjs": "node ./test/min.test.js"
+    "prepare": "repo prepare"
   },
   "exports": {
     ".": {
-      "require": "./dist/cjs/env.min.js",
-      "import": "./dist/es/env.min.js",
-      "browser": "./dist/iife/env.min.js",
-      "default": "./dist/es/env.min.js",
+      "require": "./dist/cjs/env.js",
+      "import": "./src/env.mjs",
+      "browser": "./dist/iife/env.js",
+      "default": "./dist/es/env.js",
       "types": "./types/env.d.ts"
     },
     "./global": {
-      "require": "./dist/cjs/envGlobal.min.js",
-      "import": "./dist/es/envGlobal.min.js",
-      "browser": "./dist/iife/envGlobal.min.js",
-      "default": "./dist/es/envGlobal.min.js",
+      "require": "./dist/cjs/envGlobal.js",
+      "import": "./src/envGlobal.mjs",
+      "browser": "./dist/iife/envGlobal.js",
+      "default": "./dist/es/envGlobal.js",
       "types": "./types/envGlobal.d.ts"
     },
     "./browser": {
-      "require": "./dist/cjs/envBrowser.min.js",
-      "import": "./dist/es/envBrowser.min.js",
-      "browser": "./dist/iife/envBrowser.min.js",
-      "default": "./dist/es/envBrowser.min.js",
+      "require": "./dist/cjs/envBrowser.js",
+      "import": "./src/envBrowser.mjs",
+      "browser": "./dist/iife/envBrowser.js",
+      "default": "./dist/es/envBrowser.js",
       "types": "./types/envBrowser.d.ts"
     }
   },
@@ -71,6 +72,7 @@
   },
   "files": [
     "./README.md",
+    "./src",
     "./dist",
     "./types",
     "./LICENSE"

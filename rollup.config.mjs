@@ -34,7 +34,7 @@ export default (arg) => {
   //-- manual-config --//
   const path_in = './src';
   const path_out = `./dist`;
-  const format = ['es', 'cjs', 'iife'];
+  const format = ['cjs', 'iife', 'es'];
   const lib = {
     env: "env",
     envGlobal: "envGlobal",
