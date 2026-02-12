@@ -60,6 +60,8 @@ console.log(env);
 </script>
 ```
 
+Alternative CDN: <https://cdn.jsdelivr.net/gh/jlongyam/env/>
+
 </details>
 
 <details name="browser"><summary>Worker</summary>
