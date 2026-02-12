@@ -32,6 +32,11 @@ console.log(env);
 
 ### Browser
 
+Alternative CDN:
+
+- <https://cdn.jsdelivr.net/gh/jlongyam/env/>
+- <https://www.jsdelivr.com/package/gh/jlongyam/env>
+
 <details name="browser"><summary>ES Module</summary>
 
 ```html
@@ -59,11 +64,6 @@ console.log(env);
   console.log(env)
 </script>
 ```
-
-Alternative CDN:
-
-- <https://cdn.jsdelivr.net/gh/jlongyam/env/>
-- <https://www.jsdelivr.com/package/gh/jlongyam/env>
 
 </details>
 
