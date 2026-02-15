@@ -6,21 +6,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [4.1.5] - 2026-02-08
+## [5.0.0] - 2026-02-15
 
 ### Added
 
+- feature: add changelog and changelog command - _jlongyam_
 - feature: add new github package repo - _jlongyam_
 - feature: add build files for npm publish - _jlongyam_
 
+### Fixed
+
+- fix: rebuild workspace - _jlongyam_
+
 ### Changed
 
+- documentation: update README - _jlongyam_
+- documentation: improve readibily - _jlongyam_
+- documentation: add CDN - _jlongyam_
+- documentation: add alternative CDN - _jlongyam_
 - documentation: Update npm installation command in README - _jlongyam_
 - documentation: update cdn - _jlongyam_
 - documentation: remove SystemJS references - _jlongyam_
 
 ### Other
 
+- 5.0.0 - _jlongyam_
+- "docs: update installation command in README" - _jlongyam_
 - 4.1.5 - _jlongyam_
 
 ## [4.1.4] - 2026-01-26
