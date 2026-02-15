@@ -12,11 +12,11 @@
       script.src = path;
       document.head.appendChild(script);
     }
-    if(location.protocol === 'file:' || location.protocol === 'http:') {
+    if((location.protocol === 'file:') || (location.protocol === 'http:')) {
       importScript('../dist/env.min.js');
       importScript('../dist/envGlobal.min.js');
     }
-    if(location.protocol === 'https:') {
+    else {
       importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/env.min.js');
       importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/envGlobal.min.js');
     }

@@ -17,7 +17,7 @@
       env = await importScript('../dist/env.min.mjs');
       envGlobal = await importScript('../dist/envGlobal.min.mjs');
     }
-    if(location.protocol === 'https:') {
+    else {
       env = await importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/env.min.mjs');
       envGlobal = await importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/envGlobal.min.mjs');
     }
