@@ -41,14 +41,12 @@
     ".": {
       "require": "./dist/env.min.cjs",
       "import": "./dist/env.min.mjs",
-      "types": "./dist/env.d.mts",
-      "default": "./dist/env.min.js"
+      "types": "./dist/env.d.mts"
     },
     "./global": {
       "require": "./dist/envGlobal.min.cjs",
       "import": "./dist/envGlobal.min.mjs",
-      "types": "./dist/envGlobal.d.mts",
-      "default": "./dist/envGlobal.min.js"
+      "types": "./dist/envGlobal.d.mts"
     }
   },
   "publishConfig": {
