@@ -3,14 +3,14 @@
     "allowJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "./types"
+    "outDir": "./dist"
   },
   "include": [
-    "./dist/es/*.js"
+    "./src/*.mjs"
   ],
   "exclude": [
     "node_modules",
-    "src",
+    "dist",
     "test"
   ]
 }

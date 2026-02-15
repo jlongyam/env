@@ -1,45 +1,54 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import nodePolyfills from 'rollup-plugin-polyfill-node';
+import buble from '@rollup/plugin-buble';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
-import cfg from './package.json' with { type: 'json' }
+// npm i typescript rollup @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-buble @rollup/plugin-babel @rollup/plugin-terser -D
+import pkg from './package.json' with { type: 'json' }
+// import { fileURLToPath } from 'node:url';
 
 //-- auto-generate --//
 const year = new Date().getFullYear();
 const banner = `
   /*!
-  * ${cfg.name} - ${cfg.description}
-  * Version ${cfg.version}
-  * Author: ${cfg.author}
-  * ${cfg.homepage}/${cfg.repository.directory}
+  * ${pkg.name} - ${pkg.description}
+  * Version ${pkg.version}
+  * Author: ${pkg.author}
+  * ${pkg.homepage}/${pkg.repository.directory}
   * MIT License - ${year}
   */
   `
 //-- manual-config --//
-const strict = false;
+const strict = true;
 const plugins = [
-  resolve(),
   commonjs(),
-  nodePolyfills(),
+  resolve(),
+  buble({
+    transforms: { forOf: false }
+  }),
   babel({
     babelHelpers: 'bundled',
     presets: [["@babel/preset-env", {
-      targets: "> 0.25%, last 2 versions, Firefox ESR, not dead, node 5.12.0, chrome 50"
+      targets: "Firefox ESR, node 5.12.0, chrome 50"
     }]]
   })
 ];
 export default (arg) => {
   let minify = arg['config-minify'] ? true : false;
+  let mod = "mjs";
   //-- manual-config --//
   const path_in = './src';
   const path_out = `./dist`;
-  const format = ['cjs', 'iife', 'es'];
+  const format = ['cjs','iife', 'es'];
+  // lib { <file_name>: <export_name> }
   const lib = {
-    env: "env",
-    envGlobal: "envGlobal",
-    envBrowser: "envBrowser"
+    'env': "env",
+    "envGlobal": "envGlobal",
+    "envBrowser": "envBrowser"
   };
+  let globals = {};
+  let external = [];
+  // == end config special === //
   const terser_ = [
     terser({
       compress: {
@@ -64,14 +73,23 @@ export default (arg) => {
   for (let i = 0; i < format.length; i++) {
     let output_keys = Object.keys(output);
     for(let a = 0; a < output_keys.length; a++ ) {
+      let ext = (
+        format[i] === 'cjs' ? 'cjs' :
+        format[i] === 'es' ? 'mjs' :
+        format[i] === 'umd' ? 'umd.js' :
+        format[i] === 'system' ? 'sys.js' :
+        format[i] === 'amd' ? 'amd.js' :
+        'js' )
+      ;
       output[output_keys[a]].push({
         format: format[i],
         name: lib[output_keys[a]],
+        globals: globals,
         banner: banner,
         strict: strict,
         file: minify
-          ? `${path_out}/${format[i]}/${lib[output_keys[a]]}.min.js`
-          : `${path_out}/${format[i]}/${lib[output_keys[a]]}.js`,
+          ? `${path_out}/${lib[output_keys[a]]}.min.${ext}`
+          : `${path_out}/${lib[output_keys[a]]}.${ext}`,
         plugins: terser_
       })
     }
@@ -79,9 +97,10 @@ export default (arg) => {
   let return_ = [];
   for (let i = 0; i < lib_keys.length; i++) {
     return_.push({
-      input: `${path_in}/${lib_keys[i]}.mjs`,
+      input: `${path_in}/${lib_keys[i]}.${mod}`,
       output: output[lib_keys[i]],
-      plugins: plugins
+      plugins: plugins,
+      external: external
     })
   }
   return return_;

@@ -1,5 +1,5 @@
-import env from "../dist/env.min.mjs";
-import envGlobal from "../dist/envGlobal.min.mjs";
+var env = require("../dist/env.min.cjs");
+var envGlobal = require("../dist/envGlobal.min.cjs");
 
 console.assert(env.cli === true);
 console.assert(env.browser === false);

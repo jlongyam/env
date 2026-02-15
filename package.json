@@ -15,67 +15,55 @@
     "url": "git+https://github.com/jlongyam/env.git"
   },
   "homepage": "https://github.com/jlongyam/env",
-  "main": "dist/cjs/env.js",
-  "types": "types/env.d.ts",
-  "type": "commonjs",
-  "engines": {
-    "node": ">=5.12.0"
-  },
   "devDependencies": {
     "@babel/preset-env": "^7.28.3",
-    "@jlongyam/repo": "^2.0.0",
-    "@rollup/plugin-babel": "^6.0.4",
+    "@jlongyam/repo": "^2.1.4",
+    "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-buble": "^1.0.3",
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-commonjs": "^28.0.9",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@web/dev-server": "^0.4.6",
     "bowser": "^2.12.1",
-    "rollup": "^4.50.0",
+    "rollup": "^4.57.1",
     "rollup-plugin-polyfill-node": "^0.13.0",
     "typescript": "^5.9.3"
   },
+  "main": "dist/env.min.cjs",
   "scripts": {
-    "test:es": "node ./test/test.mjs",
-    "build": "rollup -c",
-    "test:cjs": "node ./test/test.js",
-    "test": "npm run test:es && npm run test:cjs",
-    "server": "web-dev-server",
+    "build": "rollup -c --config-minify",
     "types": "tsc",
-    "changelog": "repo changelog",
-    "prepare": "repo prepare"
+    "test": "node test/test.cjs && node test/test.mjs",
+    "server": "web-dev-server",
+    "changelog": "repo changelog"
   },
   "exports": {
     ".": {
-      "require": "./dist/cjs/env.js",
-      "import": "./src/env.mjs",
-      "browser": "./dist/iife/env.js",
-      "default": "./dist/es/env.js",
-      "types": "./types/env.d.ts"
+      "require": "./dist/env.min.cjs",
+      "import": "./dist/env.min.mjs",
+      "types": "./dist/env.d.mts",
+      "default": "./dist/env.min.js"
     },
     "./global": {
-      "require": "./dist/cjs/envGlobal.js",
-      "import": "./src/envGlobal.mjs",
-      "browser": "./dist/iife/envGlobal.js",
-      "default": "./dist/es/envGlobal.js",
-      "types": "./types/envGlobal.d.ts"
+      "require": "./dist/envGlobal.min.cjs",
+      "import": "./dist/envGlobal.min.mjs",
+      "types": "./dist/envGlobal.d.mts",
+      "default": "./dist/envGlobal.min.js"
     },
     "./browser": {
-      "require": "./dist/cjs/envBrowser.js",
-      "import": "./src/envBrowser.mjs",
-      "browser": "./dist/iife/envBrowser.js",
-      "default": "./dist/es/envBrowser.js",
-      "types": "./types/envBrowser.d.ts"
+      "require": "./dist/envBrowser.min.cjs",
+      "import": "./dist/envBrowser.min.mjs",
+      "types": "./dist/envBrowser.d.mts",
+      "default": "./dist/envBrowser.min.js"
     }
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
-    "./README.md",
-    "./src",
-    "./dist",
-    "./types",
-    "./LICENSE"
+    "dist",
+    "test",
+    "index.html"
   ]
 }

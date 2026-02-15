@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test: iife</title>
+  <script src="../dist/env.min.js"></script>
+  <script src="../dist/envGlobal.min.js"></script>
+  <script src="../dist/envBrowser.min.js"></script>
+</head>
+<body>
+  <script>
+    console.assert(env.cli === false);
+    console.assert(env.browser === true);
+    console.assert(env.worker === false);
+
+    console.assert(envGlobal === window);
+    console.assert(envGlobal === globalThis);
+    console.assert(envGlobal === self);
+
+    console.log(envBrowser);
+  </script>
+</body>
+</html>

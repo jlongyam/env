@@ -1,4 +1,4 @@
-export { envBrowser as default };
+export default envBrowser;
 declare namespace envBrowser {
     let browser: any;
     let engine: any;
