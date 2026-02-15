@@ -1,7 +1,5 @@
 # env
 
-[![](https://data.jsdelivr.com/v1/package/gh/jlongyam/env/badge)](https://www.jsdelivr.com/package/gh/jlongyam/env)
-
 Basic environment detector
 
 ## Usage
@@ -95,14 +93,7 @@ import envGlobal from "@jlongyam/env/global";
 
 </details>
 
-## Alternative
-
-- [environment](https://github.com/sindresorhus/environment)
-
 ## Related
 
-- [path-key](https://github.com/sindresorhus/path-key)
-- [temp-dir](https://github.com/sindresorhus/temp-dir)
-- [dotenv](https://github.com/motdotla/dotenv)
 - [polyfill](https://github.com/jlongyam/polyfill)
 
