@@ -7,9 +7,20 @@
 </head>
 <body>
   <script type="module">
-    import env from "../dist/env.min.mjs";
-    import envGlobal from "../dist/envGlobal.min.mjs";
-
+    async function importScript(path, name = 'default') {
+      let pkg = await import(path);
+      return pkg[name];
+    }
+    let env = undefined;
+    let envGlobal = undefined;
+    if(location.protocol === 'http:') {
+      env = await importScript('../dist/env.min.mjs');
+      envGlobal = await importScript('../dist/envGlobal.min.mjs');
+    }
+    if(location.protocol === 'https:') {
+      env = await importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/env.min.mjs');
+      envGlobal = await importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/envGlobal.min.mjs');
+    }
     console.assert(env.cli === false);
     console.assert(env.browser === true);
     console.assert(env.worker === false);

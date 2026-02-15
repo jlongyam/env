@@ -1,5 +1,7 @@
 # env
 
+[![](https://data.jsdelivr.com/v1/package/gh/jlongyam/env/badge)](https://www.jsdelivr.com/package/gh/jlongyam/env)
+
 Basic environment detector
 
 ## Usage

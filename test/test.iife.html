@@ -4,18 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test: iife</title>
-  <script src="../dist/env.min.js"></script>
-  <script src="../dist/envGlobal.min.js"></script>
-</head>
 <body>
+ 
   <script>
-    console.assert(env.cli === false);
-    console.assert(env.browser === true);
-    console.assert(env.worker === false);
+    function importScript(path, cb) {
+      var script = document.createElement('script');
+      script.src = path;
+      document.head.appendChild(script);
+    }
+    if(location.protocol === 'file:' || location.protocol === 'http:') {
+      importScript('../dist/env.min.js');
+      importScript('../dist/envGlobal.min.js');
+    }
+    if(location.protocol === 'https:') {
+      importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/env.min.js');
+      importScript('https://cdn.jsdelivr.net/gh/jlongyam/env/dist/envGlobal.min.js');
+    }
+    window.addEventListener('load', function() {
+      console.assert(env.cli === false);
+      console.assert(env.browser === true);
+      console.assert(env.worker === false);
 
-    console.assert(envGlobal === window);
-    console.assert(envGlobal === globalThis);
-    console.assert(envGlobal === self);
+      console.assert(envGlobal === window);
+      console.assert(envGlobal === globalThis);
+      console.assert(envGlobal === self);
+    })
   </script>
 </body>
 </html>
