@@ -43,8 +43,7 @@ export default (arg) => {
   // lib { <file_name>: <export_name> }
   const lib = {
     'env': "env",
-    "envGlobal": "envGlobal",
-    "envBrowser": "envBrowser"
+    "envGlobal": "envGlobal"
   };
   let globals = {};
   let external = [];
