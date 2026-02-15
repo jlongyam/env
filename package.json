@@ -49,12 +49,6 @@
       "import": "./dist/envGlobal.min.mjs",
       "types": "./dist/envGlobal.d.mts",
       "default": "./dist/envGlobal.min.js"
-    },
-    "./browser": {
-      "require": "./dist/envBrowser.min.cjs",
-      "import": "./dist/envBrowser.min.mjs",
-      "types": "./dist/envBrowser.d.mts",
-      "default": "./dist/envBrowser.min.js"
     }
   },
   "publishConfig": {
