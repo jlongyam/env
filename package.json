@@ -35,6 +35,7 @@
     "types": "tsc",
     "test": "node test/test.cjs && node test/test.mjs",
     "server": "web-dev-server",
+    "escheck": "repo escheck ./dist/env.min.cjs ./dist/env.min.js ./dist/envGlobal.min.cjs ./dist/envGlobal.min.js",
     "changelog": "repo changelog"
   },
   "exports": {
