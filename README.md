@@ -95,7 +95,6 @@ import envGlobal from "@jlongyam/env/global";
 
 </details>
 
-## Related
+## Alternative
 
-- [polyfill](https://github.com/jlongyam/polyfill)
-
+- 
