@@ -1,6 +1,15 @@
 # env
 
+> This package registry migrate to @jlbyte/env
+
+> The next version are visible in registry.npmjs.io
+
+> Migrate to typescript
+
+
 [![](https://data.jsdelivr.com/v1/package/gh/jlongyam/env/badge)](https://www.jsdelivr.com/package/gh/jlongyam/env)
+
+
 
 Basic environment detector
 
