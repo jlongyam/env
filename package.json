@@ -1,0 +1,24 @@
+{
+  "name": "@jlbyte/env",
+  "version": "5.0.2",
+  "description": "Cross platform environment detector",
+  "keywords": [
+    "env",
+    "environment"
+  ],
+  "author": "jlongyam",
+  "repository": "https://github.com/jlongyam/env",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "default": "./dist/env.js",
+      "import": "./src/env.js",
+      "types": "./dist/env.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "node test/test.mjs",
+    "clean": "rm -rf dist",
+    "build": "rollup -c"
+  }
+}
